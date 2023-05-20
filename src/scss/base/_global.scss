@@ -1,0 +1,81 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+   
+    font-size: 1rem;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  
+  }
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  h1,
+  h2,
+  h3 {
+
+    margin: 0;
+    padding: 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+  /* GENERAL STYLES */
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .container {
+    width: min(90%, 100rem);
+    margin: 0 auto;
+  }
+  
+  // MEDIA QUERIES
+  
+  @include m.tablet {
+    .container {
+        width: min(90%, 90rem);
+      }
+  }
+  
+  @include m.desktop {
+  .container {
+    width: min(90%, 100rem);
+    margin: 0 auto;
+  }
+  }
+  
+  @include m.desktopXL {
+    .container {
+        width: min(90%, 125rem);
+        margin: 0 auto;
+      }
+  }
+  
