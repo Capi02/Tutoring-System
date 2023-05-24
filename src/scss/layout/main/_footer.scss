@@ -1,0 +1,28 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+footer {
+  background-color: v.$black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  @include m.desktop {
+    margin-top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+  small {
+    font-size: 1.5rem;
+    color: white;
+    
+    &:before {
+      content: v.$copyright-symbol;
+    }
+  }
+}

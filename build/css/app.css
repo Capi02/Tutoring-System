@@ -321,6 +321,7 @@ html {
 }
 
 body {
+  font-family: "Lato", sans-serif;
   font-size: 1rem;
 }
 
@@ -391,29 +392,55 @@ a {
 }
 header {
   height: auto;
+  margin-bottom: 5rem;
+}
+@media (min-width: 992px) {
+  header {
+    margin-bottom: 0;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .nav {
-  height: 8rem;
+  height: 7rem;
   background-color: #1ab192;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .nav .container_logo {
-  width: 22rem;
+  background-color: white;
+  width: 25rem;
+  text-align: center;
+}
+.nav .container_logo img {
+  width: 70%;
+}
+@media (min-width: 992px) {
+  .nav .container_logo img {
+    width: 80%;
+  }
 }
 
-.menu {
+@media (min-width: 992px) {
+  #menu_grid {
+    display: grid;
+    grid-template-rows: 25% 60% 15%;
+  }
+}
+#menu_grid .menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80%;
 }
 
 .menu_pages {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  margin: auto;
 }
 @media (min-width: 992px) {
   .menu_pages {
@@ -425,12 +452,13 @@ header {
 .menu_pages .card {
   background-color: #f8f9fa;
   text-align: center;
-  height: 20rem;
+  height: auto;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 .menu_pages .card:hover {
+  cursor: pointer;
   border: 3px solid #1ab192;
   transform: scale(1.05);
 }
@@ -448,11 +476,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem auto;
+  padding: 1.5rem;
 }
 @media (min-width: 992px) {
   .card_title {
     margin: 2rem auto;
+  }
+}
+@media (min-width: 1400px) {
+  .card_title {
+    margin: 0;
   }
 }
 .card_title h3 {
@@ -468,21 +501,109 @@ header {
 }
 
 footer {
-  background-color: #1ab192;
-  bottom: 0;
+  background-color: #2b282a;
   margin: 0;
   padding: 0;
-  position: absolute;
   width: 100%;
-  height: 7rem;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5rem;
+}
+@media (min-width: 992px) {
+  footer {
+    margin-top: 0;
+    bottom: 0;
+    position: absolute;
+  }
 }
 footer small {
+  font-size: 1.5rem;
   color: white;
-  font-size: 1.8rem;
 }
 footer small:before {
   content: "©";
+}
+
+#utt_bg {
+  background-image: url(../../../../src/img/uttn_logo.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Color de la capa oscura (negro con opacidad) */
+  z-index: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay .form_container {
+  background-color: white;
+  height: auto;
+  width: 60%;
+  border-radius: 10px;
+}
+@media (min-width: 992px) {
+  .overlay .form_container {
+    width: auto;
+  }
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 3rem;
+}
+@media (min-width: 992px) {
+  .login_form {
+    width: 35rem;
+    height: 35rem;
+  }
+}
+.login_form h3 {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.campo_form {
+  margin-bottom: 2rem;
+}
+.campo_form label {
+  display: block;
+  font-size: 1.5rem;
+}
+.campo_form input {
+  width: 70%;
+  height: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.campo_form .btn_entrar {
+  background-color: #1ab192;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  height: 4rem;
+}
+.campo_form .btn_entrar:hover {
+  cursor: pointer;
+  background-color: #179b80;
+  transition: all 0.1s ease-in-out;
 }

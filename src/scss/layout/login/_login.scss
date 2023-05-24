@@ -1,0 +1,92 @@
+@use '../../base/variables' as v;
+@use '../../base/mixins' as m;
+
+#utt_bg{
+    background-image: url(../../../../src/img/uttn_logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Color de la capa oscura (negro con opacidad) */
+    z-index: 1;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form_container{
+        background-color: white;
+        height: auto;
+        width: 60%;
+        border-radius: 10px ;
+
+        
+
+        @include m.desktop{
+            width: auto;
+        }
+    }
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 3rem;
+
+    @include m.desktop{
+        width: 35rem;
+        height: 35rem;
+    }
+
+    h3{
+        font-family: v.$menu_title;
+        margin-bottom: 3rem;
+        font-weight: 700;
+
+    }
+}
+
+.campo_form{
+    margin-bottom: 2rem;
+
+    label{
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    input{
+        width: 70%;
+        height: 3rem;
+        font-size: 1.5rem;
+        text-align: center;
+      
+    }
+
+    .btn_entrar{
+        background-color: v.$uttn_green;
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border-radius: 5px;
+        border: none;
+        width: 50%;
+        height: 4rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken(v.$uttn_green, 5);
+            transition: all 0.1s ease-in-out;
+        }
+    }
+}

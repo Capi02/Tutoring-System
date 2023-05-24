@@ -3,14 +3,33 @@
 
 header {
   height: auto;
+  margin-bottom: 5rem;
+
+  @include m.desktop{
+    margin-bottom:0 ;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+  }
 }
 .nav {
-  height: 8rem;
+  height: 7rem;
   background-color: v.$uttn_green;
   display: flex;
   justify-content: center;
+  width: 100%;
 
   .container_logo {
-    width: 22rem;
+    background-color: #ffff;
+    width: 25rem;
+    text-align: center;
+
+    img{
+      width: 70%;
+
+      @include m.desktop{
+        width: 80%;
+      }
+    }
   }
 }

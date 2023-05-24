@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- TITLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- TEXT FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="../src/scss/base/_normalize.scss" as="style" />
+  <link rel="stylesheet" href="../src/scss/base/_normalize.scss" />
+
+  <link rel="preload" href="../build/css/app.css" as="style" />
+  <link rel="stylesheet" href="../build/css/app.css" />
+
+  <title>Login</title>
+</head>
+
+<body id="utt_bg">
+  <div class="overlay">
+    <div class="container form_container">
+      <form class="login_form">
+        <h3>Login</h3>
+        <div class="campo_form">
+          <label for="folio">Folio:</label>
+          <input type="text" id="folio" name="folio" required />
+        </div>
+        <div class="campo_form">
+          <label for="contraseña">Contraseña:</label>
+          <input type="password" id="contraseña" name="contraseña" required />
+        </div>
+        <div class="campo_form">
+          <input type="submit" value="Entrar" class="btn_entrar" />
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
