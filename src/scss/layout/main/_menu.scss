@@ -1,0 +1,68 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    
+}
+.menu_pages {
+  @include m.grid(2, 2rem);
+
+  @include m.desktop {
+    @include m.grid(5, 2rem);
+  }
+
+  .card {
+    background-color: v.$white_gray;
+    text-align: center;
+    height: 20rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover{
+        border: 3px solid v.$uttn_green;
+        transform: scale(1.05);
+    }
+
+    @include m.desktop{
+        height: 25rem;
+    }
+  
+  }
+}
+
+
+
+.card_logo{
+    border-radius: 5px 5px 0 0;
+}
+
+.card_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+
+    @include m.desktop{
+        margin: 2rem auto;
+    }
+
+
+     h3 {
+        font-family: v.$menu_title;
+       
+        @include m.desktop{
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+

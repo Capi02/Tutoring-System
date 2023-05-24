@@ -1,0 +1,16 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+header {
+  height: auto;
+}
+.nav {
+  height: 8rem;
+  background-color: v.$uttn_green;
+  display: flex;
+  justify-content: center;
+
+  .container_logo {
+    width: 22rem;
+  }
+}
