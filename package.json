@@ -1,6 +1,7 @@
 {
   "name": "sistema_tutorias",
   "version": "1.0.0",
+
   "description": "Project for UTT Tutoring System",
   "main": "index.js",
   "scripts": {
