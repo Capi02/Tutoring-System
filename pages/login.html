@@ -30,18 +30,26 @@
 <body id="utt_bg">
   <div class="overlay">
     <div class="container form_container">
-      <form class="login_form">
-        <h3>Login</h3>
-        <div class="campo_form">
-          <label for="folio">Folio:</label>
-          <input type="text" id="folio" name="folio" required />
+      <form class="form form_card">
+        <div class="card_header">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z"></path>
+            <path fill="currentColor"
+              d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z">
+            </path>
+          </svg>
+          <h1 class="form_heading">Inicio de Sesión</h1>
         </div>
-        <div class="campo_form">
-          <label for="contraseña">Contraseña:</label>
-          <input type="password" id="contraseña" name="contraseña" required />
+        <div class="field">
+          <label for="matricula">Matricula</label>
+          <input class="input" name="matricula" type="text" placeholder="Matricula" id="matricula">
         </div>
-        <div class="campo_form">
-          <input type="submit" value="Entrar" class="btn_entrar" />
+        <div class="field">
+          <label for="contraseña">Contraseña</label>
+          <input class="input" name="user_contraseña" type="password" placeholder="Contraseña" id="contraseña">
+        </div>
+        <div class="field">
+          <button class="button">Iniciar Sesión</button>
         </div>
       </form>
     </div>

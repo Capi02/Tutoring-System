@@ -391,20 +391,14 @@ a {
   }
 }
 header {
-  height: auto;
-  margin-bottom: 5rem;
-}
-@media (min-width: 992px) {
-  header {
-    margin-bottom: 0;
-    height: 15rem;
-    display: flex;
-    align-items: center;
-  }
+  margin-bottom: 3rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
 }
 
 .nav {
-  height: 7rem;
+  height: 5rem;
   background-color: #1ab192;
   display: flex;
   justify-content: center;
@@ -414,6 +408,9 @@ header {
   background-color: white;
   width: 25rem;
   text-align: center;
+  position: relative;
+  top: -1.5rem;
+  height: 8rem;
 }
 .nav .container_logo img {
   width: 70%;
@@ -490,10 +487,10 @@ header {
 }
 .card_title h3 {
   font-family: "Roboto", sans-serif;
+  font-size: 2rem;
 }
 @media (min-width: 992px) {
   .card_title h3 {
-    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -519,8 +516,18 @@ footer {
   }
 }
 footer small {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: white;
+}
+@media (min-width: 768px) {
+  footer small {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  footer small {
+    font-size: 1.5rem;
+  }
 }
 footer small:before {
   content: "©";
@@ -539,7 +546,8 @@ footer small:before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Color de la capa oscura (negro con opacidad) */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Color de la capa oscura (negro con opacidad) */
   z-index: 1;
   margin: auto;
   display: flex;
@@ -547,63 +555,73 @@ footer small:before {
   justify-content: center;
 }
 .overlay .form_container {
-  background-color: white;
   height: auto;
-  width: 60%;
-  border-radius: 10px;
-}
-@media (min-width: 992px) {
-  .overlay .form_container {
-    width: auto;
-  }
+  width: auto;
 }
 
-.login_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.form_card {
   width: auto;
   height: auto;
-  text-align: center;
-  padding: 3rem;
-}
-@media (min-width: 992px) {
-  .login_form {
-    width: 35rem;
-    height: 35rem;
-  }
-}
-.login_form h3 {
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 3rem;
-  font-weight: 700;
+  background: #f4f6fb;
 }
 
-.campo_form {
-  margin-bottom: 2rem;
+.form {
+  padding: 25px;
 }
-.campo_form label {
-  display: block;
-  font-size: 1.5rem;
+.form .card_header {
+  display: flex;
+  align-items: center;
 }
-.campo_form input {
-  width: 70%;
-  height: 3rem;
-  font-size: 1.5rem;
-  text-align: center;
+
+.form_card svg {
+  color: #1ab192;
+  margin-bottom: 20px;
+  margin-right: 5px;
 }
-.campo_form .btn_entrar {
-  background-color: #1ab192;
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 700;
+
+.form_heading {
+  padding-bottom: 20px;
+  font-size: 2.5rem;
+  color: #1ab192;
+}
+
+.field {
+  padding-bottom: 10px;
+}
+.field .input {
   border-radius: 5px;
-  border: none;
-  width: 50%;
-  height: 4rem;
+  background-color: #e9e9f7;
+  padding: 5px;
+  width: 100%;
+  color: #2b282a;
+  border: 1px solid #dadaf7;
+  font-size: 1.4rem;
 }
-.campo_form .btn_entrar:hover {
-  cursor: pointer;
-  background-color: #179b80;
-  transition: all 0.1s ease-in-out;
+.field .input::placeholder {
+  color: #bcbcdf;
+  font-size: 1.5rem;
+}
+.field .input:focus-visible {
+  outline: 1px solid #aeaed6;
+}
+
+label {
+  color: #b2bac8;
+  font-size: 1.6rem;
+  display: block;
+  padding-bottom: 4px;
+}
+
+button {
+  background-color: #1ab192;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  padding: 7px 12px;
+  height: auto;
+  font-weight: 500;
+  color: white;
+  border: none;
+}
+button:hover {
+  background-color: #179f83;
 }

@@ -1,92 +1,102 @@
-@use '../../base/variables' as v;
-@use '../../base/mixins' as m;
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
 
-#utt_bg{
-    background-image: url(../../../../src/img/uttn_logo.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+#utt_bg {
+  background-image: url(../../../../src/img/uttn_logo.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Color de la capa oscura (negro con opacidad) */
-    z-index: 1;
-    margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Color de la capa oscura (negro con opacidad) */
+  z-index: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form_container {
+    height: auto;
+    width: auto;
+  }
+}
+
+.form_card {
+  width: auto;
+  height: auto;
+  background: #f4f6fb;
+}
+
+.form {
+  padding: 25px;
+
+  .card_header {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    .form_container{
-        background-color: white;
-        height: auto;
-        width: 60%;
-        border-radius: 10px ;
-
-        
-
-        @include m.desktop{
-            width: auto;
-        }
-    }
+  }
 }
 
-.login_form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    text-align: center;
-    padding: 3rem;
-
-    @include m.desktop{
-        width: 35rem;
-        height: 35rem;
-    }
-
-    h3{
-        font-family: v.$menu_title;
-        margin-bottom: 3rem;
-        font-weight: 700;
-
-    }
+.form_card svg {
+  color: v.$uttn_green;
+  margin-bottom: 20px;
+  margin-right: 5px;
 }
 
-.campo_form{
-    margin-bottom: 2rem;
+.form_heading {
+  padding-bottom: 20px;
+  font-size: 2.5rem;
+  color: v.$uttn_green;
+}
 
-    label{
-        display: block;
+.field {
+  padding-bottom: 10px;
+
+  .input {
+    border-radius: 5px;
+    background-color: #e9e9f7;
+    padding: 5px;
+    width: 100%;
+    color: v.$black;
+    border: 1px solid #dadaf7;
+    font-size: 1.4rem;
+
+    &::placeholder {
+        color: #bcbcdf;
         font-size: 1.5rem;
-    }
+      }
 
-    input{
-        width: 70%;
-        height: 3rem;
-        font-size: 1.5rem;
-        text-align: center;
-      
-    }
+    &:focus-visible {
+        outline: 1px solid #aeaed6;
+      }
+  }
+}
 
-    .btn_entrar{
-        background-color: v.$uttn_green;
-        color: #ffffff;
-        font-size: 1.5rem;
-        font-weight: 700;
-        border-radius: 5px;
-        border: none;
-        width: 50%;
-        height: 4rem;
 
-        &:hover {
-            cursor: pointer;
-            background-color: darken(v.$uttn_green, 5);
-            transition: all 0.1s ease-in-out;
-        }
-    }
+label {
+  color: #b2bac8;
+  font-size: 1.6rem;
+  display: block;
+  padding-bottom: 4px;
+}
+
+button {
+  background-color: v.$uttn_green;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  padding: 7px 12px;
+  height: auto;
+  font-weight: 500;
+  color: white;
+  border: none;
+
+  &:hover {
+    background-color: darken(v.$uttn_green, 4);
+  }
 }

@@ -11,15 +11,24 @@ footer {
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
-  @include m.desktop {
-    margin-top: 0;
-    bottom: 0;
-    position: absolute;
-  }
+    @include m.desktop {
+      margin-top: 0;
+      bottom: 0;
+      position: absolute;
+    }
 
   small {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: white;
+
+    @include m.tablet{
+      font-size: 1.5rem;
+    }
+
+    @include m.desktop{
+      font-size: 1.5rem;
+    }
+
     
     &:before {
       content: v.$copyright-symbol;

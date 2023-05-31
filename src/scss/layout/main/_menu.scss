@@ -62,9 +62,9 @@
 
   h3 {
     font-family: v.$menu_title;
+    font-size: 2rem ;
 
     @include m.desktop {
-      font-size: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
