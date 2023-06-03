@@ -1,37 +1,57 @@
 @use "../../base/variables" as v;
 @use "../../base/mixins" as m;
 
-footer {
+
+
+.menu_footer { // diseño del footer del menu de inicio
   background-color: v.$black;
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 6rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
-    @include m.desktop {
-      margin-top: 0;
-      bottom: 0;
-      position: absolute;
-    }
 
-  small {
-    font-size: 1.3rem;
-    color: white;
+  @include m.desktop {
+    margin-top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+  
+}
 
-    @include m.tablet{
-      font-size: 1.5rem;
-    }
+.small_text {
+  font-size: 1.3rem;
+  color: white;
 
-    @include m.desktop{
-      font-size: 1.5rem;
-    }
+  @include m.tablet{
+    font-size: 1.5rem;
+  }
 
-    
-    &:before {
-      content: v.$copyright-symbol;
-    }
+  @include m.desktop{
+    font-size: 1.5rem;
+  }
+
+  
+  &:before {
+    content: v.$copyright-symbol;
+  }
+}
+
+.footer{  // diseño para todos los demas footers
+  background-color: v.$black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include m.desktopXL {
+    margin-top: 0;
+    bottom: 0;
+    position: absolute;
   }
 }

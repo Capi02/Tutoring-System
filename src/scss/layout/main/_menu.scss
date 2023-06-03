@@ -1,22 +1,17 @@
 @use "../../base/variables" as v;
 @use "../../base/mixins" as m;
 
-#menu_grid {
-  @include m.desktop {
-    display: grid;
-    grid-template-rows: 25% 60% 15%;
-  }
 
-  .menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu_pages {
+
+.main_menu {
   @include m.grid(2, 2rem);
-  margin: auto;
 
   @include m.desktop {
     @include m.grid(5, 2rem);
@@ -62,7 +57,7 @@
 
   h3 {
     font-family: v.$menu_title;
-    font-size: 2rem ;
+    font-size: 2rem;
 
     @include m.desktop {
       display: flex;
