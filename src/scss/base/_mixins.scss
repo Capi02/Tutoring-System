@@ -18,6 +18,12 @@
     }
 }
 
+@mixin laptop{
+    @media (min-width: v.$laptop){
+        @content;
+    }
+}
+
 @mixin desktopXL{
     @media (min-width: v.$desktopXL){
         @content;
