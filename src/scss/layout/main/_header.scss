@@ -13,23 +13,44 @@ header {
   height: 5rem;
   background-color: v.$uttn_green;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   width: 100%;
 
-  .container_logo {
-    background-color: #ffff;
-    width: 25rem;
-    text-align: center;
-    position: relative;
-    top: -1.5rem;
-    height: 8rem;
+  .links_container{
+    display: flex;
+    width: 76.5%;
+    justify-content: space-evenly;
+  }
+}
 
-    img{
-      width: 70%;
 
-      @include m.desktop{
-        width: 80%;
-      }
+.container_logo {
+  background-color: v.$white;
+  width: 25rem;
+  text-align: center;
+  position: relative;
+  top: -1.5rem;
+  height: 8rem;
+
+  img{
+    width: 70%;
+
+    @include m.desktop{
+      width: 80%;
     }
+  }
+}
+
+
+.container_login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: v.$white;
   }
 }

@@ -20,12 +20,26 @@
 </head>
 
 <body id="menu_grid">
-  <header>
-    <div class="nav">
-      <div class="container_logo">
-        <img src="../src/img/UTTN_logo1.png" class="uttn_logo" alt=" Uttn logo" />
+  <header class="center">
+    <nav class="nav">
+      <div class="links_container">
+        <div class="container_logo">
+          <a href="index.html">
+            <img src="../src/img/UTTN_logo1.png" class="uttn_logo" alt=" Uttn logo" />
+          </a>
+        </div>
+        <div class="container_login center"> <!-- ( center )is a helper class that align / center the items  -->
+          <a href="login.html" class="login" style="color: white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path fill="white"
+                d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z">
+              </path>
+            </svg>
+            Iniciar Sesión</a>
+        </div>
       </div>
-    </div>
+    </nav>
   </header>
 
   <section class="container menu menu_margin">
@@ -61,7 +75,7 @@
       <!-- Card -->
       <div class="card">
         <a href="../pages/psicometrico.html">
-        <div class="card_image">
+          <div class="card_image">
             <img src="../src/img/menu_imgs/4.webp" alt="Test Psicométrico Image" class="card_logo" />
           </div>
           <div class="card_title">
@@ -83,7 +97,8 @@
   </section>
 
   <footer class="menu_footer">
-    <small class="small_text"> Universidad Tecnologíca de Tamaulipas Norte - 2023</small>
+    <small class="small_text">
+      Universidad Tecnologíca de Tamaulipas Norte - 2023</small>
   </footer>
 </body>
 

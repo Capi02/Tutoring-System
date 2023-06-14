@@ -1,7 +1,7 @@
 import moongose from "mongoose";
 
 
-const conectarDB = async() => {
+const conectarDB = async () => {
     try {
         const db = await moongose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,

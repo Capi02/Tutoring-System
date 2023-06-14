@@ -70,17 +70,12 @@ a {
   }
 }
 
-
-
 .container {
   width: min(90%, 100rem);
   margin: 0 auto;
 }
 
-.menu_margin {
-  margin-top: 5rem !important;
-  margin-bottom: 7rem !important;
-}
+
 
 #menu_tuto_grid {
   @include m.desktopXL {
