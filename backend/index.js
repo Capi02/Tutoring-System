@@ -5,12 +5,6 @@ import conectarDB from "../backend/config/db.js"
 import cookieParser from "cookie-parser";
 
 
-
-
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "frontend/build")));
-
-
 import pathsRoutes from "./routes/paths.routes.js";
 import authRoutes  from "./routes/auth.routes.js"; 
 
@@ -23,6 +17,9 @@ app.use(cookieParser());
 // habilitando PUG
 app.set("view engine", "pug");
 app.use("/", pathsRoutes);
+
+app.use(express.static("public"));
+app.use(express.static("uploads"));
 
 
 app.use("/api", authRoutes);
