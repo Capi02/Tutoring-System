@@ -32,6 +32,7 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
+    res.render("login");
 
     const { folio, password } = req.body;
 
@@ -67,4 +68,17 @@ export const logout = (req, res) => {
     });
 
     return res.sendStatus(200);
+}
+
+export const perfil = async (req, res) => {
+    const usuarioEncontrado = await  Alumno.findById(req.user.id)
+    
+    if(!usuarioEncontrado) return res.status(404).json({ message: "Usuario no encontrado" });
+    
+    return res.json({
+        id: usuarioEncontrado._id,
+        folio: usuarioEncontrado.folio,
+        createdAt: usuarioEncontrado.createdAt,
+        updatedAt: usuarioEncontrado.updatedAt,
+    })
 }

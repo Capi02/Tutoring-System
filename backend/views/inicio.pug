@@ -1,0 +1,62 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+
+  link(rel="stylesheet", href="../frontend/build/css/style.css")
+
+
+  title Inicio
+header.center
+  nav.nav
+    .links_container
+      .container_logo
+        a(href='index.html')
+          img.uttn_logo(src='../src/img/UTTN_logo1.png' alt=' Uttn logo')
+      .container_login.center
+        // ( center )is a helper class that align / center the items
+        a.login(href='login.html' style='color: white')
+          svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' width='22' height='22')
+            path(fill='none' d='M0 0h24v24H0z')
+            path(fill='white' d='M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z')
+          |             Iniciar Sesi&oacute;n
+section.container.menu.menu_margin
+  .main_menu
+    .card
+      .card_image
+        img.card_logo(src='../src/img/menu_imgs/1.webp' alt=' Evaluación Docente Image')
+      .card_title
+        h3 Evaluaci&oacute;n Docente
+    // Card
+    .card
+      a(href='../pages/tutorias.html')
+        .card_image
+          img.card_logo(src='../src/img/menu_imgs/2.webp' alt='Tutorías Image')
+        .card_title
+          h3 Tutor&iacute;as
+    // Card
+    .card
+      .card_image
+        img.card_logo(src='../src/img/menu_imgs/3.webp' alt=' Estancia y Estadías Image')
+      .card_title
+        h3 Estancia y Estad&iacute;as
+    // Card
+    .card
+      a(href='../pages/psicometrico.html')
+        .card_image
+          img.card_logo(src='../src/img/menu_imgs/4.webp' alt='Test Psicométrico Image')
+        .card_title
+          h3 Test Psicom&eacute;trico
+    // Card
+    .card
+      .card_image
+        img.card_logo(src='../src/img/menu_imgs/5.webp' alt=' Seguimiento Egresados Image')
+      .card_title
+        h3 Seguimiento Egresados
+    // Card
+footer.menu_footer
+  small.small_text
+    | Universidad Tecnolog&iacute;ca de Tamaulipas Norte - 2023

@@ -1,0 +1,32 @@
+{
+  "name": "sistema_tutorias",
+  "version": "1.0.0",
+  "description": "Project for UTT Tutoring System",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/Capi02/Tutoring-System.git"
+  },
+  "keywords": [
+    "SASS",
+    "JS",
+    "GULP",
+    "NPM"
+  ],
+  "author": "Erick A. Capitanachi González",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-avif": "^1.1.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6"
+  }
+}
