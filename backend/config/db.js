@@ -1,4 +1,4 @@
-import moongose from "mongoose";
+const moongose = require("mongoose"); 
 
 
 const conectarDB = async () => {
@@ -17,4 +17,4 @@ const conectarDB = async () => {
     }
 }
 
-export default conectarDB;
+module.exports = conectarDB;

@@ -1,4 +1,4 @@
-export const validateSchema = (schema) => (req, res, next) => {
+const validateSchema = (schema) => (req, res, next) => {
     try {
         schema.parse(req.body)
         next()
@@ -7,3 +7,5 @@ export const validateSchema = (schema) => (req, res, next) => {
         return res.status(400).json({ error: error.errors.map( error => error.message)})
     }
 }
+
+module.exports = validateSchema;

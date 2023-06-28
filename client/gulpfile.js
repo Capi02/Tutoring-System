@@ -15,7 +15,7 @@ function css(done){
     src('src/scss/**/*.scss')// identificar el archivo SASS
     .pipe(plumber()) // manejo de errores
     .pipe(sass())  // compilarlo
-    .pipe(dest('build/css'));// Almacenarla en el disco duro
+    .pipe(dest('../backend/public/css'));// Almacenarla en el disco duro
    
   
     done(); // Callback que abisa a gulp cuando llegamos al final
@@ -29,7 +29,7 @@ function webpVersion(done){
 
     src("src/img/**/*.{png, jpg}")
     .pipe(webp(options))
-    .pipe(dest("build/img"))
+    .pipe(dest("../backend/public/css"))
     done()
 }
 
@@ -41,7 +41,7 @@ function avifVersion(done){
 
     src("src/img/**/*.{png, JPG, jpg}")
     .pipe(avif(options))
-    .pipe(dest("build/img"))
+    .pipe(dest("../backend/public/css"))
     done()
 }
 

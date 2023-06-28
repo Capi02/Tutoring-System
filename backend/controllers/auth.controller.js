@@ -1,8 +1,8 @@
-import bcrypt from "bcryptjs";
-import Alumno from "../models/Alumno.js";
-import { createAccessToken } from "../libs/jwt.js";
+const bcrypt = require( "bcryptjs");
+const Alumno = require( "../models/Alumno.js");
+const { createAccessToken } = require( "../libs/jwt.js");
 
-export const register = async (req, res) => {
+const register = async (req, res) => {
     const { folio, password, informacionPersonal } = req.body;
 
     try {
@@ -31,7 +31,7 @@ export const register = async (req, res) => {
     }
 }
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
     res.render("login");
 
     const { folio, password } = req.body;
@@ -56,13 +56,12 @@ export const login = async (req, res) => {
             updatedAt: alumnoEncontrado.updatedAt
         });
 
-
     } catch (error) {
         res.status(500).json({ message: error.message})
     }
 }
 
-export const logout = (req, res) => {
+const logout = (req, res) => {
     res.cookie("token", "",{
         expires: new Date(0),
     });
@@ -70,7 +69,7 @@ export const logout = (req, res) => {
     return res.sendStatus(200);
 }
 
-export const perfil = async (req, res) => {
+const perfil = async (req, res) => {
     const usuarioEncontrado = await  Alumno.findById(req.user.id)
     
     if(!usuarioEncontrado) return res.status(404).json({ message: "Usuario no encontrado" });
@@ -81,4 +80,11 @@ export const perfil = async (req, res) => {
         createdAt: usuarioEncontrado.createdAt,
         updatedAt: usuarioEncontrado.updatedAt,
     })
+}
+
+module.exports = {
+    register,
+    login,
+    logout,
+    perfil
 }

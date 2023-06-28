@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require( "mongoose");
 
 const alumnoSchema = new mongoose.Schema({
     folio: {
-        type: String, 
+        type: Number, 
         required: true,
         trim: true // elimina los espacios en blanco en caso que el usuario puso muchos
     },
@@ -20,4 +20,4 @@ const alumnoSchema = new mongoose.Schema({
 });
 
 const Alumno = mongoose.model("Alumno", alumnoSchema)
-export default Alumno;
+module.exports = Alumno;
