@@ -1,0 +1,116 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* 1 rem = 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: v.$text_font;
+  font-size: 1rem;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  font-family: v.$menu_title;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: v.$black;
+}
+
+h1,
+h2,
+h3 {
+
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* GENERAL STYLES */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited{
+    color: v.$black;
+  }
+}
+
+.container {
+  width: min(90%, 100rem);
+  margin: 0 auto;
+}
+
+
+
+#menu_tuto_grid {
+  @include m.desktopXL {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    height: 100%;
+  }
+}
+
+#menu_grid {
+  @include m.desktop {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    height: 100%;
+  }
+}
+
+    // MEDIA QUERIES
+
+    @include m.tablet {
+      .container {
+        width: min(90%, 90rem);
+      }
+    }
+
+    @include m.desktop {
+      .container {
+        width: min(85%, 100rem);
+        margin: 0 auto;
+      }
+    }
+
+    @include m.desktopXL {
+      .container {
+        width: min(85%, 125rem);
+        margin: 0 auto;
+      }
+    }

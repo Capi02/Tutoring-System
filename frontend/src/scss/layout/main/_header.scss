@@ -1,0 +1,56 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+
+header {
+  margin-bottom: 3rem ;
+  height: 10rem;
+  display: flex;
+  align-items: center; 
+
+}
+.nav {
+  height: 5rem;
+  background-color: v.$uttn_green;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+
+  .links_container{
+    display: flex;
+    width: 76.5%;
+    justify-content: space-evenly;
+  }
+}
+
+
+.container_logo {
+  background-color: v.$white;
+  width: 25rem;
+  text-align: center;
+  position: relative;
+  top: -1.5rem;
+  height: 8rem;
+
+  img{
+    width: 70%;
+
+    @include m.desktop{
+      width: 80%;
+    }
+  }
+}
+
+
+.container_login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: v.$white;
+  }
+}
