@@ -1,7 +1,7 @@
 const z = require("zod");
 
 const registerSchema = z.object({
-    folio: z.number({
+    folio: z.string({
         required_error: "El campo del folio es requerido"
     }),
     password: z.string({

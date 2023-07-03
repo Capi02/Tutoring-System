@@ -2,10 +2,17 @@ const bcrypt = require( "bcryptjs");
 const Alumno = require( "../models/Alumno.js");
 const { createAccessToken } = require( "../libs/jwt.js");
 
-const register = async (req, res) => {
+const registrar = async (req, res) => {
+
+    console.log(req.body)
     const { folio, password, informacionPersonal } = req.body;
 
     try {
+
+        const alumnoEncontrado = await Alumno.findOne({folio}) // busca si el folio ya esta repetido
+        if(alumnoEncontrado){ // si si está repetido
+            return res.status(400).json(["El folio que ingresaste, ya está registrado"]) // manda el siguiente mensaje
+        }
 
         const passwordHash = await bcrypt.hash(password, 10) //  askdjfksfj13t5
         const nuevoAlumno = new Alumno({
@@ -25,6 +32,7 @@ const register = async (req, res) => {
             updatedAt: alumnoGuardado.updatedAt
         });
 
+       
 
     } catch (error) {
         res.status(500).json({ message: error.message})
@@ -32,7 +40,6 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    res.render("login");
 
     const { folio, password } = req.body;
 
@@ -48,13 +55,8 @@ const login = async (req, res) => {
         const token = await createAccessToken({id: alumnoEncontrado._id})
 
         res.cookie("token", token);
-        res.json({
-            id: alumnoEncontrado._id,
-            folio: alumnoEncontrado.folio,
-            informacionPersonal: alumnoEncontrado.informacionPersonal,
-            createdAt: alumnoEncontrado.createdAt,
-            updatedAt: alumnoEncontrado.updatedAt
-        });
+        res.status(200).json({ message: "Session Iniciada"})
+      
 
     } catch (error) {
         res.status(500).json({ message: error.message})
@@ -62,7 +64,7 @@ const login = async (req, res) => {
 }
 
 const logout = (req, res) => {
-    res.cookie("token", "",{
+    res.cookie("token", token,{
         expires: new Date(0),
     });
 
@@ -83,7 +85,7 @@ const perfil = async (req, res) => {
 }
 
 module.exports = {
-    register,
+    registrar,
     login,
     logout,
     perfil

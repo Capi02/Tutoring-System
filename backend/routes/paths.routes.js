@@ -6,7 +6,6 @@ router.get("/", (req, res) => {
 
     const locals = {
         title: "Inicio",
-        grid_variable: "#menu_grid"
     }
     res.render("inicio", locals)
 })
@@ -19,23 +18,25 @@ router.get("/login", (req, res) => {
     res.render("login", locals);
 })
 
-router.get("/registro", (req, res) => {
+router.get("/registrar", (req, res) => {
 
     const locals = {
         title: "Registro",
     }
-    res.render("registro", locals);
+    res.render("register", locals);
 })
 
-router.get("/psicometrico", (req, res) =>{
+router.get("/psicometricos", (req, res) =>{
 
     const locals = {
         title: "Psicometrico",
     }
-    res.render("psicometrico", locals) , {
+    res.render("psicometricos", locals) , {
         // informacion que se envia a la plantilla
         
     };
+
+    res.render("psicometricos", locals)
 })
 
 router.get("/tutorias", (req, res) => {
