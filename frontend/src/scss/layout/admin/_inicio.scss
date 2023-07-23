@@ -1,0 +1,15 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.ti_bg{
+
+    .admin_title{
+        text-align: center;
+        text-decoration: underline;
+        margin-bottom: 5rem;
+    }
+
+    img{
+        height: 35rem;
+    }
+}

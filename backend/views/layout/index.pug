@@ -5,11 +5,15 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='preconnect' href='https://fonts.googleapis.com')
   link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(rel="shortcut icon", href="/img/ti_logo.png", type="image/x-icon")
   link(rel='preload' href='./css/app.css' as='style')
   link(rel="stylesheet", href="./css/app.css")
+  script(src="/funciones/loader.js") 
+  include includes.pug
   title=title
 
 body
   include header
+  span.loader
   block contenido
   include footer

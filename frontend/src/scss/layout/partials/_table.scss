@@ -1,0 +1,37 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+#students_table {
+    font-size: 1.3rem;
+    box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.2);
+  
+    th {
+      background-color: v.$uttn_green;
+      color: v.$white;
+    }
+  
+    th,
+    td {
+      padding: 1rem;
+    }
+  
+    td {
+      border: 1px solid #ccc;
+      color: #666666;
+    }
+  }
+  
+  #students_table_wrapper {
+    font-size: 1.4rem;
+  
+    .dataTables_length, .dataTables_filter {
+      margin-bottom: 1.5rem;
+      .label {
+        color: black;
+        font-size: 1.4rem;
+        display: block;
+        padding-bottom: 4px;
+      }
+    }
+  }
+  

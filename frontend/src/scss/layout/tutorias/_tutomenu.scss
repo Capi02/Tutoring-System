@@ -3,6 +3,7 @@
 
 
 .tuto_menu {
+    width: 100%;
     @include m.grid(2, 2rem); // GRID CELLPHONE
 
     @include m.tablet {

@@ -1,16 +1,14 @@
 const Router = require("express");
-const { registrar, login, logout, perfil}= require("../controllers/auth.controller.js");
-const authRequired = require("../middlewares/validateToken.js");
-const validateSchema = require("../middlewares/validatorMiddleware.js");
-const {registerSchema, loginSchema} = require("../schemas/auth.schema.js");
+const { register, login, logout, updateAccount, deleteAccount} = require("../controllers/auth.controller.js");
+
+
 
 const router = Router();
 
-router.post("/registrar", validateSchema(registerSchema), registrar);
-router.post("/login", validateSchema(loginSchema), login);
-router.post("/logout", logout);
-router.get("/perfil", authRequired, perfil);
-
-
+router.post("/register", register);
+router.post("/login", login);
+router.get("/logout", logout);
+router.patch("/update/:id", updateAccount);
+router.delete("/delete/:id", deleteAccount)
 
 module.exports = router;

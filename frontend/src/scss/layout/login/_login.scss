@@ -36,6 +36,13 @@
 .field {
   padding-bottom: 10px;
 
+  .label {
+    color: #b2bac8;
+    font-size: 1.6rem;
+    display: block;
+    padding-bottom: 4px;
+  }
+
   .input {
     border-radius: 4px;
     background-color:white;
@@ -67,12 +74,7 @@
   -moz-appearance: textfield;
 }
 
-label {
-  color: #b2bac8;
-  font-size: 1.6rem;
-  display: block;
-  padding-bottom: 4px;
-}
+
 
 button {
   background-color: v.$uttn_green;
@@ -91,7 +93,17 @@ button {
   }
 }
 
-.errors_container{
-  background-color: red;
-  font-size: 5rem;
+.already_registered_container{
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+   span{
+     &:hover{
+      text-decoration: underline;
+      color: v.$uttn_green;
+     }
+   }
+  
+
 }

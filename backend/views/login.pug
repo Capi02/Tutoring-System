@@ -1,23 +1,22 @@
 extends ./layout/index
 block contenido
-  .container
+  .container.h-80
     .form_container
-      form.form.form_card
+      form.form.form_card(method="POST" action="")
         .center
           svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' width='24' height='24')
             path(fill='none' d='M0 0h24v24H0z')
             path(fill='currentColor' d='M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z')
           h1.form_heading Inicio de Sesi&oacute;n
+        .field.alert
+          label.label(for='username') Username:
+          input#username.input.folio_input(name='username' type='text' placeholder='Username' required)
         .field
-          label(for='folio') Folio:
-          input#folio.input.folio_input(name='folio' type='number' placeholder='Folio')
-        .field
-          label(for='password') Contrase&ntilde;a:
-          input.input#password(name='password' type='password' placeholder='Contraseña')
-        .field
-          button.button#botonLogin(type="button") Iniciar Sesi&oacute;n
-
-      script(src="/api/authLogin.js", async, defer)
+          label.label(for='password') Contrase&ntilde;a:
+          input.input#password(name='password' type='password' placeholder='Contraseña' required)
         
-           
+        button.button#botonLogin(type="submit") Iniciar Sesi&oacute;n 
+
+        script(src="/api/authLogin.js" type="module", async, defer)
+    
       

@@ -1,45 +1,50 @@
+import { showAlert } from "../funciones/alert.js";
 
-const botonLogin = document.querySelector("#botonLogin")
-botonLogin.addEventListener('click', validarFormularioLogin)
+const onlyNumbersRegex = /^\d+$/;
+
+const botonLogin = document.querySelector("#botonLogin");
+botonLogin.addEventListener("click", validarFormularioLogin);
 
 function validarFormularioLogin(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const folio = document.querySelector("#folio").value;
-    const password = document.querySelector("#password").value;
+  const username = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
 
-
-
-    if (folio === "" || password === "") {
-        console.log("formularios vacios")
-    } else {
-        enviarFormulario(folio, password);
-    }
+  if (username === "" || password === "") {
+    showAlert("Todos los campos son obligatorios")
+  }else if(password.length < 6) {
+    showAlert("La contraseña debe tener al menos 6 caracteres");
+  }else if(onlyNumbersRegex.test(username)){
+    showAlert("El username solo contiene numeros")
+  } else {
+    enviarFormulario(username, password);
+  }
 }
 
-function enviarFormulario(folio, password) {
-
-    const data = {
-        folio,
-        password
-    }
-    fetch("http://localhost:4000/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-
-
+function enviarFormulario(username, password) {
+  const data = {
+    username,
+    password,
+  };
+  fetch("http://localhost:4000/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data.error){
+        showAlert(data.error)
+      }else{
+        window.location.href = "/";
+      }
+     
     })
-        .then(response => response.json())
-        .then(data => {
-            // Aquí puedes manejar la respuesta del servidor
-            console.log(data);
-        })
-        .catch(error => {
-            console.log(error);
-        })
-
-    window.location.href = "http://localhost:4000/"
+    .catch((error) => {
+      console.log(error.error)
+    });
 }
+

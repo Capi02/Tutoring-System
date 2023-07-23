@@ -1,0 +1,21 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.btn_edit{
+    background-color: #666666;
+    border-radius: 5px;
+    color: white;
+
+    &:hover{
+        background-color: darken(#666666, 6);
+    }
+}
+
+.btn_delete{
+    background-color: red;
+    color: white;
+
+    &:hover{
+        background-color: darken(red, 6);
+    }
+}

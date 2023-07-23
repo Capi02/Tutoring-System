@@ -5,23 +5,28 @@ const conectarDB = require("./config/db.js")
 const cookieParser = require("cookie-parser");
 const pathsRoutes = require("./routes/paths.routes.js");
 const authRoutes = require("./routes/auth.routes.js"); 
+const usersRoutes = require("./routes/users.routes.js")
+const adminPaths = require("./routes/admin.paths.js")
 const bodyParser = require("body-parser");
+const path = require("path");
+const TOKEN_SECRET = require("./config.js")
 const app = express();
-const path = require("path")
-
 
 app.use(morgan("dev"));
-app.use(express.json()); // aqui espeficamos que vamos a estar enviando datos de tipo json
-app.use(cookieParser());
+app.use(cookieParser(TOKEN_SECRET));
+app.use(express.json()); // function that will grant access to the user's data from the body
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-
-// // habilitando PUG
+// Enabling Pug as a template engine
 app.set("view engine", "pug");
 
+// app.use(authRequired);
 app.use("/", pathsRoutes);
-app.use("/api", authRoutes);
+app.use("/admin", adminPaths);
+app.use("/api/auth", authRoutes);
+app.use("/api", usersRoutes);
+
 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '../frontend/public')));
