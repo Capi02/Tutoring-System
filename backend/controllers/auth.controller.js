@@ -1,50 +1,13 @@
 const bcrypt = require( "bcryptjs");
 const { createAccessToken } = require( "../libs/jwt.js");
-const User = require("../models/User")
-
-const register = async (req, res, next) => {
-    const { username, password } = req.body;
-
-    try {
-        const userFound = await User.findOne({ username }) 
-
-        if(userFound) {
-            return res.status(400).json({error: "El nombre de usuario ya ha sido registrado"})
-        }
-
-        const passwordHash = await bcrypt.hash(password, 10)
-        
-        const newUser = new User({
-            username,
-            password: passwordHash,
-        })
-
-        const userSaved = await newUser.save();
-        const token = await createAccessToken({
-            id: userSaved._id, 
-            username: userSaved.username,
-            role: userSaved.role
-        })
-        res.cookie("token", token);
-        res.cookie("username", userSaved.username, { signed: true});
-        res.cookie("role", userSaved.role, {signed: true});
-
-        res.status(200).json({ message: "Usuario creado correctamente"})
-
-    } catch (err) {
-        res.status(401).json({
-            error: "Error! El Usuario no se pudo crear",
-            error: err.message,
-        })
-    }
-}
+const Student = require("../models/Student.model.js")
 
 const login = async (req, res) => {
 
     const { username, password } = req.body;
 
     try {
-        const userFound = await User.findOne({username})
+        const userFound = await Student.findOne({username})
 
         if (!userFound) return res.status(400).json({ error: "Usuario no encontrado"});
 
@@ -76,7 +39,7 @@ const logout = (req, res) => {
       res.clearCookie("username", {expires: new Date(Date.now() - 1)});
       res.clearCookie("role", {expires: new Date(Date.now() - 1)});
     }
-    res.redirect('/'); // Redireccionar al inicio u otra página adecuada
+    res.redirect('/');
   };
 
 
@@ -85,7 +48,7 @@ const updateAccount = async (req, res) => {
     const { username, password, role} = req.body;
 
     try {
-        const user = await User.findById(id);
+        const user = await Student.findById(id);
 
         if(!user){
             return res.status(400).json({ error: "Usuario no encontrado"})
@@ -99,7 +62,7 @@ const updateAccount = async (req, res) => {
         user.role = role;
 
         await user.save();
-        res.status(200).json({ message: "User actualizado correctamente"})
+        res.status(200).json({ message: "Student actualizado correctamente"})
        
 
     } catch (err) {
@@ -112,7 +75,7 @@ const deleteAccount = async (req, res) => {
 
     const {id} = req.params;
 
-    const userToDelete = await User.findByIdAndDelete(id);
+    const userToDelete = await Student.findByIdAndDelete(id);
 
     if(!userToDelete){
         return res.status(400).json({ error: "Usuario no encontrado"})
@@ -122,7 +85,7 @@ const deleteAccount = async (req, res) => {
 }
 
 const perfil = async (req, res) => {
-    const userFound = await  User.findById(req.user.id)
+    const userFound = await  Student.findById(req.user.id)
     
     if(!userFound) return res.status(404).json({ error: "Usuario no encontrado" });
     
@@ -137,7 +100,6 @@ const perfil = async (req, res) => {
 
 
 module.exports = {
-    register,
     login,
     logout,
     updateAccount,

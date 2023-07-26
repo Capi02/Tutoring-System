@@ -2,9 +2,59 @@
 @use "../../base/mixins" as m;
 
 .content {
-  h1 {
-    text-align: center;
-    margin-bottom: 3rem;
+  .students_container {
+    width: 80%;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
   }
 }
 
+.register_student_form {
+  padding: 3rem;
+  .field {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    width: auto;
+  }
+}
+
+.register_student_buttons_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  .register_student_button {
+    background-color: v.$uttn_green;
+    font-size: 1.5rem;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    color: v.$white;
+    width: 10rem;
+
+    &:hover {
+      background-color: darken(v.$uttn_green, 4);
+      cursor: pointer;
+    }
+  }
+}
+
+.excel_container {
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .excel_label {
+    color: v.$uttn_green;
+  }
+
+  .register_input_excel {
+  }
+}

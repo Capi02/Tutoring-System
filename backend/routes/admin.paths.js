@@ -1,5 +1,5 @@
 const { authRequired, adminAuth } = require("../middlewares/validateToken")
-const {getUsers} = require("../controllers/users.controller")
+const {getStudents} = require("../controllers/users.controller")
 
 const Router = require("express");
 const router = Router();
@@ -43,6 +43,15 @@ router.get("/psicologos", (req, res) => {
     }
 
     res.render("admin/psicologos", locals)
+})
+
+router.get("/agregar", (req, res) => {
+    
+    const locals = {
+        title: "Agregar"
+    }
+
+    res.render("admin/agregarUsuarios", locals)
 })
 
 module.exports = router;

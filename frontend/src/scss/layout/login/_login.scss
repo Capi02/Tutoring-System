@@ -19,6 +19,23 @@
 
 .form {
   padding: 25px;
+
+  button {
+    background-color: v.$uttn_green;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    padding: 7px 12px;
+    height: auto;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: darken(v.$uttn_green, 4);
+      cursor: pointer;
+    }
+  }
 }
 
 .form_card svg {
@@ -45,7 +62,7 @@
 
   .input {
     border-radius: 4px;
-    background-color:white;
+    background-color: white;
     padding: 5px;
     width: 100%;
     color: #555555;
@@ -74,36 +91,15 @@
   -moz-appearance: textfield;
 }
 
-
-
-button {
-  background-color: v.$uttn_green;
-  margin-top: 10px;
-  font-size: 1.5rem;
-  padding: 7px 12px;
-  height: auto;
-  font-weight: 500;
-  color: white;
-  border: none;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: darken(v.$uttn_green, 4);
-    cursor:pointer;
-  }
-}
-
-.already_registered_container{
+.already_registered_container {
   font-size: 1.3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 0;
-   span{
-     &:hover{
+  span {
+    &:hover {
       text-decoration: underline;
       color: v.$uttn_green;
-     }
-   }
-  
-
+    }
+  }
 }

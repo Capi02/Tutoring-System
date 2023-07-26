@@ -2,7 +2,7 @@ extends ./layout/index
 block contenido
   .container.h-80
     .form_container
-      form.form.form_card(method="POST" action="")
+      form.form.form_card#login_student_form(method="POST" action="")
         .center
           svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' width='24' height='24')
             path(fill='none' d='M0 0h24v24H0z')
@@ -15,7 +15,7 @@ block contenido
           label.label(for='password') Contrase&ntilde;a:
           input.input#password(name='password' type='password' placeholder='Contraseña' required)
         
-        button.button#botonLogin(type="submit") Iniciar Sesi&oacute;n 
+        button(type="submit") Iniciar Sesi&oacute;n 
 
         script(src="/api/authLogin.js" type="module", async, defer)
     

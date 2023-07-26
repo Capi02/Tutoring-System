@@ -11,7 +11,8 @@
   }
 
   @include m.desktopXL {
-    height: 65rem;
+    grid-template-columns: 10% 90%;
+    height: 90%;
   }
 
   .admin-sidebar {
@@ -29,6 +30,8 @@
     grid-column-end: 3;
     margin: auto;
     padding: 2rem;
+    position: absolute;
+    top: 30px;
   }
 }
 
@@ -49,7 +52,7 @@
 
 .admin-sidebar ul li a {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 1rem;

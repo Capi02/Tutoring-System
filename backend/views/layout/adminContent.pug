@@ -3,7 +3,7 @@
     ul.ul_sidebar
       li
         a(href='/admin').sidebar_text
-          svg.icon.icon-tabler.icon-tabler-home-2(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+          svg.icon.icon-tabler.icon-tabler-home-2(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.2' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
               path(stroke='none' d='M0 0h24v24H0z' fill='none')
               path(d='M5 12l-2 0l9 -9l9 9l-2 0')
               path(d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7')
@@ -11,7 +11,7 @@
           | Inicio
       li
         a(href='/admin/estudiantes').sidebar_text
-          svg.icon.icon-tabler.icon-tabler-backpack(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+          svg.icon.icon-tabler.icon-tabler-backpack(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.2' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
               path(stroke='none' d='M0 0h24v24H0z' fill='none')
               path(d='M5 18v-6a6 6 0 0 1 6 -6h2a6 6 0 0 1 6 6v6a3 3 0 0 1 -3 3h-8a3 3 0 0 1 -3 -3z')
               path(d='M10 6v-1a2 2 0 1 1 4 0v1')
@@ -20,7 +20,7 @@
           | Estudiantes
       li
         a(href='/admin/maestros').sidebar_text
-          svg.icon.icon-tabler.icon-tabler-pencil-minus(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+          svg.icon.icon-tabler.icon-tabler-pencil-minus(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.2' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
               path(stroke='none' d='M0 0h24v24H0z' fill='none')
               path(d='M8 20l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4h4z')
               path(d='M13.5 6.5l4 4')
@@ -28,7 +28,7 @@
           | Maestros
       li
         a(href='/admin/psicologos').sidebar_text 
-          svg.icon.icon-tabler.icon-tabler-report-search(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='1.5' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+          svg.icon.icon-tabler.icon-tabler-report-search(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.2' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
             path(stroke='none' d='M0 0h24v24H0z' fill='none')
             path(d='M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697')
             path(d='M18 12v-5a2 2 0 0 0 -2 -2h-2')
@@ -38,7 +38,18 @@
             path(d='M16.5 17.5m-2.5 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0')
             path(d='M18.5 19.5l2.5 2.5')
           | Psicólogos
-  .content
+      li
+        a(href='/admin/agregar').sidebar_text 
+          svg.icon.icon-tabler.icon-tabler-users-group(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.2' stroke='#000000' fill='none' stroke-linecap='round' stroke-linejoin='round')
+            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+            path(d='M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0')
+            path(d='M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1')
+            path(d='M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0')
+            path(d='M17 10h2a2 2 0 0 1 2 2v1')
+            path(d='M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0')
+            path(d='M3 13v-1a2 2 0 0 1 2 -2h2')
+          | Agregar Usuarios
+  .content.w-100
     block Content 
     
  

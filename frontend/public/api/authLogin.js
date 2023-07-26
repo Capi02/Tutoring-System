@@ -2,8 +2,8 @@ import { showAlert } from "../funciones/alert.js";
 
 const onlyNumbersRegex = /^\d+$/;
 
-const botonLogin = document.querySelector("#botonLogin");
-botonLogin.addEventListener("click", validarFormularioLogin);
+const form = document.querySelector("#login_student_form");
+form.addEventListener("submit", validarFormularioLogin);
 
 function validarFormularioLogin(e) {
   e.preventDefault();
@@ -39,6 +39,7 @@ function enviarFormulario(username, password) {
       if(data.error){
         showAlert(data.error)
       }else{
+        form.reset();
         window.location.href = "/";
       }
      

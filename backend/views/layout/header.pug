@@ -9,15 +9,6 @@ header.center
              path(d='M10 12h4v4h-4z')
           | Home
       li 
-        a.list_items(href='/register')
-          svg.icon.icon-tabler.icon-tabler-user-plus(width="22" height="22" viewbox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round")
-            path(stroke="none" d="M0 0h24v24H0z" fill="none")
-            path(d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0")
-            path(d="M16 19h6")
-            path(d="M19 16v6")
-            path(d="M6 21v-2a4 4 0 0 1 4 -4h4")
-          | Registrarse
-      li 
         if (token)
           a.list_items(href='http://localhost:4000/api/auth/logout')
             svg.icon.icon-tabler.icon-tabler-logout(width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round")
@@ -49,29 +40,22 @@ header.center
         .container_login.center
           // ( center )is a helper class that align / center the items
           if (user)
-            a.links
-              svg.icon.icon-tabler.icon-tabler-user(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
-                path(stroke='none' d='M0 0h24v24H0z' fill='none')
-                path(d='M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0')
-                path(d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2')
-              |         #{user}
-
-            a.links(href='http://localhost:4000/api/auth/logout')
-              svg.icon.icon-tabler.icon-tabler-logout(width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round")
-                path(stroke="none" d="M0 0h24v24H0z" fill="none")
-                path(d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2")
-                path(d="M9 12h12l-3 -3")
-                path(d="M18 15l3 -3")
-              |             Cerrar Sesión
+            .dropdown
+              a.user
+                svg.icon.icon-tabler.icon-tabler-user(xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                  path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                  path(d='M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0')
+                  path(d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2')
+                |         #{user}
+                .dropdown-content
+                  a.logout(href='http://localhost:4000/api/auth/logout')
+                    svg.icon.icon-tabler.icon-tabler-logout(width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round")
+                      path(stroke="none" d="M0 0h24v24H0z" fill="none")
+                      path(d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2")
+                      path(d="M9 12h12l-3 -3")
+                      path(d="M18 15l3 -3")
+                    |             Cerrar Sesión
           else 
-            a.links(href='/register')
-              svg.icon.icon-tabler.icon-tabler-user-plus(width="22" height="22" viewbox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round")
-                path(stroke="none" d="M0 0h24v24H0z" fill="none")
-                path(d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0")
-                path(d="M16 19h6")
-                path(d="M19 16v6")
-                path(d="M6 21v-2a4 4 0 0 1 4 -4h4")
-              |            Registrarse
             a.links(href='/login')
               svg.icon.icon-tabler.icon-tabler-login(width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round")
                 path(stroke="none" d="M0 0h24v24H0z" fill="none")

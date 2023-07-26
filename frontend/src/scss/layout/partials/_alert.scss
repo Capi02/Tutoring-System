@@ -1,11 +1,15 @@
-.alert_error{
-    background-color: pink;
-    font-size: 1.4rem;
-    color: darken(red,  5);
-    width: 25rem;
-    height: auto;
-    text-align: center;
-    padding: 1rem;
-    border: 1px solid red;
-    margin-bottom: 1.5rem;
+.alert_error {
+  background-color: pink;
+  font-size: 1.4rem;
+  color: darken(red, 5);
+  width: 25rem;
+  height: auto;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid red;
+  margin-bottom: 1.5rem;
+}
+
+.sweet-alert button.confirm {
+  background-color: red;
 }

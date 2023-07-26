@@ -1,14 +1,15 @@
 extends ../layout/adminLayout
 block Content
-    h1 Students 
-    table#students_table.display.cell-border.hover.row-border
-      thead
-        tr
-          th Matricula
-          th Username
-          th Password
-          th Role
-      tbody
+    .students_container
+      h1 Estudiantes
+      table#students_table.display.cell-border.hover.row-border
+        thead
+          tr
+            //- th Matricula
+            th Nombre Usuario
+            th Contraseña
+            th Tipo
+        tbody
     
     script(src="/api/students.js") 
     

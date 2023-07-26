@@ -7,6 +7,7 @@ const pathsRoutes = require("./routes/paths.routes.js");
 const authRoutes = require("./routes/auth.routes.js"); 
 const usersRoutes = require("./routes/users.routes.js")
 const adminPaths = require("./routes/admin.paths.js")
+const excelRoutes = require("./routes/excel.routes.js");
 const bodyParser = require("body-parser");
 const path = require("path");
 const TOKEN_SECRET = require("./config.js")
@@ -26,6 +27,7 @@ app.use("/", pathsRoutes);
 app.use("/admin", adminPaths);
 app.use("/api/auth", authRoutes);
 app.use("/api", usersRoutes);
+app.use("/api/upload/excel", excelRoutes);
 
 
 app.use(express.static('public'));
