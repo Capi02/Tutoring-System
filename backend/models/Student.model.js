@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const studentSchema = new mongoose.Schema({
+    matricula: {
+        type: String,
+        trim: true,
+    },
     nombre: {
         type: String,
         required: true,
@@ -29,12 +34,7 @@ const studentSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "student",
-        required: true,
     },
-//     aspectosPersonales: {
-//     type: Object,
-//     default: null
-// } 
 },{
     timestamps: true,
     strict: false

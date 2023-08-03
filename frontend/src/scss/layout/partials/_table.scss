@@ -1,7 +1,7 @@
 @use "../../base/variables" as v;
 @use "../../base/mixins" as m;
 
-#students_table {
+.table {
     font-size: 1.3rem;
     box-shadow: 1px 2px 26px rgba(0, 0, 0, 0.2);
   
@@ -18,10 +18,15 @@
     td {
       border: 1px solid #ccc;
       color: v.$black;
+
+      &:last-child{
+        display: flex;
+        gap: 1rem;
+      }
     }
   }
   
-  #students_table_wrapper {
+  #students_table_wrapper, #teachers_table_wrapper, #psychologist_table_wrapper {
     font-size: 1.4rem;
   
     .dataTables_length, .dataTables_filter {

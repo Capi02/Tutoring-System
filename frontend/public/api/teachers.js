@@ -1,40 +1,34 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-    getStudents()
-    btnDelete();
+    getTeachers();
     btnEdit();
-
+    btnDelete();
 });
 
-async function getStudents() {
-    try {
-        const res = await fetch("http://localhost:4000/api/students");
-        const data = await res.json();
-        studentsTable(data);
-    } catch (error) {
-        console.log(error);
-    }
 
+async function getTeachers() {
+    const res = await fetch("http://localhost:4000/api/teachers");
+    const data = await res.json();
+    teachersTable(data)
 }
 
-function studentsTable(students) {
-    let table = new DataTable("#students_table", {
+function teachersTable(teachers) {
+    let table = new DataTable("#teachers_table", {
         responsive: true,
-        data: students,
+        data: teachers,
         columns: [
-            { data: 'matricula' },
+            { data: 'numeroEmpleado' },
             { data: "apellidoPaterno" },
             { data: "apellidoMaterno" },
             { data: 'username' },
             { data: 'password' },
             { data: 'role' },
-            { // Agregamos una columna para las acciones
+            {
                 data: null,
                 render: function (data, type, row) {
                     return `
-                <button class="student_edit_button btn_edit" data-id="${data.id}">Editar</button>
-                <button class="student_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
-              `;
+            <button class="teachers_edit_button btn_edit" data-id="${data.id}">Editar</button>
+            <button class="teachers_delete_button btn_delete" data-id="${data.id}">Eliminar</button>
+          `;
                 }
             }
         ],
@@ -43,13 +37,14 @@ function studentsTable(students) {
 
 function btnDelete() {
     document.addEventListener('click', function (event) {
-        if (event.target.classList.contains('student_delete_button')) {
-            const studentId = event.target.dataset.id;
-            deleteStudent(studentId);
+        if (event.target.classList.contains('teachers_delete_button')) {
+            const teacherId = event.target.dataset.id;
+           
+            deletePsychologist(teacherId);
         }
     });
 }
-async function deleteStudent(id) {
+async function deletePsychologist(id) {
     swal({
         title: "Está seguro?",
         text: "Una vez eliminado, no podrá recuperar el usuario",
@@ -76,34 +71,33 @@ const overlay = document.querySelector("#overlay");
 
 function btnEdit() {
     document.addEventListener("click", (e) => {
-        if (e.target.classList.contains("student_edit_button")) {
+        if (e.target.classList.contains("teachers_edit_button")) {
             const overlay = document.querySelector("#overlay");
             overlay.style.display = "block"
-            const studentId = e.target.dataset.id;
-            setStudentInformation(studentId)
+            const teacherId = e.target.dataset.id;
+            setTeacherInformation(teacherId)
             closeOverlay()
         }
     })
 }
 function closeOverlay() {
-    const btnCancel = document.querySelector(".student_cancel_button");
+    const btnCancel = document.querySelector(".teacher_cancel_button");
     btnCancel.addEventListener("click", () => {
         overlay.style.display = "none";
 
     })
 }
 
-
-async function setStudentInformation(id) {
+async function setTeacherInformation(id) {
     try {
-        const res = await fetch(`http://localhost:4000/api/student/${id}`, {
+        const res = await fetch(`http://localhost:4000/api/teacher/${id}`, {
             method: "GET"
         });
         const data = await res.json();
 
-        const { matricula, nombre, apellidoPaterno, apellidoMaterno, username, password } = data.studentInformation;
+        const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = data.teacherInformation;
 
-        document.querySelector("#edit_input_matricula").value = matricula;
+        document.querySelector("#edit_input_numeroEmpleado").value = numeroEmpleado;
         document.querySelector("#edit_input_nombre").value = nombre;
         document.querySelector("#edit_input_apellidoPaterno").value = apellidoPaterno;
         document.querySelector("#edit_input_apellidoMaterno").value = apellidoMaterno;
@@ -121,21 +115,21 @@ async function updateInformation(id) {
     const save_changes_button = document.querySelector(".save_edit_button");
     save_changes_button.addEventListener("click", () => {
 
-        const newStudentInformation = {
-            matricula: document.querySelector("#edit_input_matricula").value,
+        const newTeacherInformation = {
+            numeroEmpleado: document.querySelector("#edit_input_numeroEmpleado").value,
             nombre: document.querySelector("#edit_input_nombre").value,
             apellidoPaterno: document.querySelector("#edit_input_apellidoPaterno").value,
             apellidoMaterno: document.querySelector("#edit_input_apellidoMaterno").value,
             username: document.querySelector("#edit_input_username").value,
             password: document.querySelector("#edit_input_password").value,
         }
-        sendUpdateInformation(newStudentInformation, id);
+        sendUpdateInformation(newTeacherInformation, id);
     })
 }
 
 async function sendUpdateInformation(newInfo, id) {
     try {
-        const res = await fetch(`http://localhost:4000/api/update-student/${id}`, {
+        const res = await fetch(`http://localhost:4000/api/update-teacher/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

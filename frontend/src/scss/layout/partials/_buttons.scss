@@ -19,3 +19,33 @@
         background-color: darken(red, 6);
     }
 }
+
+.btn_delete, .btn_edit, .save_edit_button{
+    border: none;
+    border-radius: 3px;
+    color: white;
+    padding: 6px;
+}
+.btn_edit{
+    background-color:v.$blue_light;
+
+    &:hover{
+        background-color: darken(v.$blue_light, $amount: 6);
+    }
+}
+
+.btn_delete{
+    background-color: v.$red_alert;
+
+    &:hover{
+        background-color: darken(v.$red_alert, $amount: 6);
+    }
+}
+
+.save_edit_button{
+    background-color: v.$uttn_green;
+
+    &:hover{
+        background-color: darken(v.$uttn_green, 6);
+    }
+}

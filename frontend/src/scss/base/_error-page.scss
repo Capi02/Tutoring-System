@@ -1,0 +1,31 @@
+@use "../base/mixins" as m;
+@use '../base/variables' as v;
+
+.body_error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error_page_container{
+    width: min(80%, 100rem);
+    margin: 0 auto;
+}
+
+.error_message_container{
+    text-align: center;
+    margin: auto;
+    @include m.desktop {
+        width: 45rem;
+    }
+
+    .message_error{
+        width: 100%;
+        font-size: 2.5rem;
+    }
+
+    img {
+        
+    }
+}
+

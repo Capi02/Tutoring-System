@@ -1,15 +1,43 @@
 extends ../layout/adminLayout
 block Content
-    .students_container
+    .content_container
       h1 Estudiantes
-      table#students_table.display.cell-border.hover.row-border
+      table#students_table.table.display.cell-border.hover.row-border
         thead
           tr
-            //- th Matricula
+            th Matricula
+            th Apellido Paterno,
+            th Apellido Materno,
             th Nombre Usuario
             th Contraseña
             th Tipo
+            th Acciones
         tbody
+
+        div#overlay
+          div.edit_form_container
+            form(action="" method="PATCH")#edit_form
+              .edit_field
+                label(for="edit_matricula") Matricula:
+                input.edit_input#edit_input_matricula(type="text" name="matricula" placeholder="Matricula")
+              .edit_field
+                label(for="edit_matricula") Nombre:
+                input.edit_input#edit_input_nombre(type="text" name="nombre" placeholder="Nombre")
+              .edit_field
+                label(for="edit_apellidoPaterno") Apellido Paterno:
+                input.edit_input#edit_input_apellidoPaterno(type="text" name="apellidoPaterno" placeholder="Apellido Paterno")
+              .edit_field
+                label(for="edit_apellidoMaterno") Apellido Materno:
+                input.edit_input#edit_input_apellidoMaterno(type="text" name="apellidoMaterno" placeholder="Apellido Materno")
+              .edit_field
+                label(for="edit_username") Nombre Usuario:
+                input.edit_input#edit_input_username(type="text" name="username" placeholder="Nombre Usuario")
+              .edit_field
+                label(for="edit_password") Contraseña:
+                input.edit_input#edit_input_password(type="password" name="password" placeholder="Contraseña")
+              .edit_buttons_container 
+                button.student_cancel_button(type="button") Cancelar
+                button.save_edit_button(type="button") Guardar Cambios
     
     script(src="/api/students.js") 
     

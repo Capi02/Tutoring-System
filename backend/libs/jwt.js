@@ -1,4 +1,3 @@
-const { TOKEN_SECRET } = require("../config.js");
 const  jwt  = require("jsonwebtoken");
 
 function createAccessToken(payload){
@@ -7,7 +6,7 @@ function createAccessToken(payload){
         payload,
         process.env.JWT_KEY,
         {
-            expiresIn: "1d"
+            expiresIn: "2h",
         },
         (err, token) => {
             if (err) reject(err)

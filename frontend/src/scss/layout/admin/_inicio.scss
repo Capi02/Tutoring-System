@@ -2,6 +2,9 @@
 @use "../../base/mixins" as m;
 
 .ti_bg{
+    width: auto;
+    
+    margin: 2rem auto;
 
     .admin_title{
         text-align: center;

@@ -1,0 +1,8 @@
+1. Arreglar el inicio de sesion, pasar la informacion correctamente
+2. Aumentar las validaciones en ciertas areas
+3. Mejorar detalles del responsive
+4. Probar lo que se mostrara para los diferentes roles
+5. Verificar si el usuario esta autenticado y solucionar detalles como (quitar el que no puedas entrar a la pagina sin loggearte)
+6. Botones de borrar y editar para los usuarios de las tablas.
+7. Diseño (toques finales)
+8. Terminar de hacer la funcion para hashear contraseñas

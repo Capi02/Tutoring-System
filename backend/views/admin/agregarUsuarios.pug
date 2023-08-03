@@ -1,17 +1,18 @@
 extends ../layout/adminLayout
 block Content
-
     .tab
         .title
             h1 Registrar Usuarios
         .types_container 
-            button.tablinks(onclick="openCity(event, 'Students')") Estudiante
-            button.tablinks(onclick="openCity(event, 'Teachers')") Maestros
-            button.tablinks(onclick="openCity(event, 'psychologists')") Psicólogos
-    // Tab content
-    #Students.tabcontent
+            button.tablinks.active(onclick="openUserType(event, 'Students')") Estudiante
+            button.tablinks(onclick="openUserType(event, 'Teachers')") Maestros
+            button.tablinks(onclick="openUserType(event, 'Psychologists')") Psicólogos
+    #Students.tabcontent.active(style = "display:block;")
         .register_student_form 
             form#register_student_form(method="POST" action="") 
+                .field 
+                    label(for="matricula") Nombre:
+                    input#matricula(type="text" name="matricula" placeholder="Matricula" ) 
                 .field 
                     label(for="nombre") Nombre:
                     input#nombre(type="text" name="nombre" placeholder="Nombre" ) 
@@ -32,14 +33,13 @@ block Content
                     .excel_container 
                         p.excel_label Registrar con archivo Excel:
                         input#input_excel_student.register_input_excel(type="file" name="file" placeholder="Registrar con archivo csv")
-        
-                        
+                    
     #Teachers.tabcontent
         .register_student_form 
-            form#register_student_form2(method="POST" action="") 
+            form#register_teacher_form(method="POST" action="") 
                 .field 
                     label(for="numeroEmpleado") Numero Empleado:
-                    input#numeroEmpleado_form2(type="text" name="numeroEmpleado" placeholder="#Num" ) 
+                    input#numeroEmpleado_form2(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
                 .field 
                     label(for="nombre") Nombre:
                     input#nombre_form2(type="text" name="nombre" placeholder="Nombre" ) 
@@ -61,12 +61,12 @@ block Content
                         p.excel_label Registrar con archivo Excel:
                         input#input_excel_teacher.register_input_excel(type="file" placeholder="Registrar con archivo csv").register_student_button_excel 
                        
-    #psychologists.tabcontent
+    #Psychologists.tabcontent
         .register_student_form 
-            form#register_student_form3(method="POST" action="") 
+            form#register_psychologist_form(method="POST" action="") 
                 .field 
                     label(for="numeroEmpleado") Numero Empleado:
-                    input#numeroEmpleado_form3(type="text" name="numeroEmpleado" placeholder="#Num" ) 
+                    input#numeroEmpleado_form3(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
                 .field 
                     label(for="nombre") Nombre:
                     input#nombre_form3(type="text" name="nombre" placeholder="Nombre" ) 
@@ -87,16 +87,13 @@ block Content
                     .excel_container 
                         p.excel_label Registrar con archivo Excel:
                         input#input_excel_psychologist.register_input_excel(type="file" name="file" placeholder="Registrar con archivo csv").register_student_button_excel 
-                        //- svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='26' height='26' viewbox='0 0 48 48')
-                        //-     path(fill='#4CAF50' d='M41,10H25v28h16c0.553,0,1-0.447,1-1V11C42,10.447,41.553,10,41,10z')
-                        //-     path(fill='#FFF' d='M32 15H39V18H32zM32 25H39V28H32zM32 30H39V33H32zM32 20H39V23H32zM25 15H30V18H25zM25 25H30V28H25zM25 30H30V33H25zM25 20H30V23H25z')
-                        //-     path(fill='#2E7D32' d='M27 42L6 38 6 10 27 6z')
-                        //-     path(fill='#FFF' d='M19.129,31l-2.411-4.561c-0.092-0.171-0.186-0.483-0.284-0.938h-0.037c-0.046,0.215-0.154,0.541-0.324,0.979L13.652,31H9.895l4.462-7.001L10.274,17h3.837l2.001,4.196c0.156,0.331,0.296,0.725,0.42,1.179h0.04c0.078-0.271,0.224-0.68,0.439-1.22L19.237,17h3.515l-4.199,6.939l4.316,7.059h-3.74V31z')
 
     script(src="/api/register-student.js" type="module") 
+    script(src="/api/register-teacher.js" type="module") 
+    script(src="/api/register-psychologist.js" type="module") 
     script. 
-        function openCity(evt, cityName) {
-        // Declare all variables
+        function openUserType(evt, userType) {
+       
         var i, tabcontent, tablinks;
 
         // Get all elements with class="tabcontent" and hide them
@@ -112,6 +109,6 @@ block Content
         }
 
         // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(userType).style.display = "block";
         evt.currentTarget.className += " active";
         }

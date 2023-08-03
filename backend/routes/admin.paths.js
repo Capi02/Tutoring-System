@@ -1,54 +1,60 @@
-const { authRequired, adminAuth } = require("../middlewares/validateToken")
-const {getStudents} = require("../controllers/users.controller")
+const { authenticateToken } = require("../middlewares/validateToken")
+const {authenticateRole} = require("../middlewares/verifyRole");
+ 
 
 const Router = require("express");
 const router = Router();
 
-router.get("/", authRequired, (req, res) => {
-    token = req.cookies.token;
+router.get("/", authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
 
     const locals = {
         title: "Admin",
-        user: req.user.username
+        username
     }
 
     res.render("admin/inicio", locals)
 })
 
-router.get("/estudiantes", authRequired, (req, res) => {
+router.get("/estudiantes", authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
 
     const locals = {
         title: "Estudiantes",
-        user: req.user.username
+        username
     }
 
     res.render("admin/estudiantes", locals)
 })
 
-router.get("/maestros", (req, res) => {
+router.get("/maestros",authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
 
     const locals = {
         title: "Maestros",
-        // user: req.user.username
+        username
     }
 
     res.render("admin/maestros", locals)
 })
 
-router.get("/psicologos", (req, res) => {
+router.get("/psicologos", authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
 
     const locals = {
         title: "Psicólogos",
-        // user: req.user.username
+        username
     }
 
     res.render("admin/psicologos", locals)
 })
 
-router.get("/agregar", (req, res) => {
-    
+router.get("/agregar", authenticateToken, authenticateRole("admin"), (req, res) => {
+    const {username, role} = req.user;
+
     const locals = {
-        title: "Agregar"
+        title: "Agregar",
+        username
     }
 
     res.render("admin/agregarUsuarios", locals)

@@ -1,16 +1,14 @@
-const { authRequired, adminAuth } = require("../middlewares/validateToken")
-const { getUserData } = require("../middlewares/data.js")
-const { getUsers } = require("../controllers/users.controller")
-
+const { authenticateToken, adminAuth } = require("../middlewares/validateToken")
 const Router = require("express");
 const router = Router();
 
-router.get("/", authRequired, (req, res) => {
-    
+router.get("/", authenticateToken, (req, res) => {
+    const { username, role} = req.user;
+
     const locals = {
         title: "Inicio",
-        token: req.cookies.token,
-        user: req.user.username
+        username,
+        role
     }
     res.render("inicio", locals)
 })
@@ -25,17 +23,8 @@ router.get("/login", (req, res) => {
     res.render("login", locals);
 })
 
-router.get("/register", (req, res) => {
+router.get("/psicometricos", authenticateToken, (req, res) => {
 
-
-    const locals = {
-        title: "Register",
-    }
-    res.render("register", locals);
-})
-
-router.get("/psicometricos", authRequired, (req, res) => {
-    const { username } = req.user
     const locals = {
         title: "Psicometrico",
         user: req.user.username
@@ -46,19 +35,24 @@ router.get("/psicometricos", authRequired, (req, res) => {
     };
 })
 
-router.get("/tutorias", authRequired, (req, res) => {
-    token = req.cookies.token;
+router.get("/tutorias", authenticateToken, (req, res) => {
+    const { username, role} = req.user;
+
     const locals = {
         title: "Tutorias",
-        user: req.user.username
+        username,
+        role
     }
     res.render("tutorias", locals);
 })
 
-router.get("/error", (req, res) => {
+router.get("/pagina-error", authenticateToken, (req, res) => {
+
+    const errorMessage = req.query.message;
 
     const locals = {
-        title: "Error"
+        title: "Error",
+        errorMessage,
     }
 
     res.render("error", locals)

@@ -7,6 +7,11 @@ const teacherSchema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
+    nombre: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     apellidoPaterno: {
         type: String,
         required: true,
@@ -30,7 +35,6 @@ const teacherSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "teacher",
-        required: true,
     },
 },{
     timestamps: true,

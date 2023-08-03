@@ -7,6 +7,11 @@ const psychologistSchema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
+    nombre: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     apellidoPaterno: {
         type: String,
         required: true,
@@ -29,8 +34,7 @@ const psychologistSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        default: "teacher",
-        required: true,
+        default: "psychologist",
     },
 },{
     timestamps: true,

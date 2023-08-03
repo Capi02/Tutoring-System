@@ -3,50 +3,69 @@ block contenido
 
     section.container.menu.menu_margin
         .tuto_menu
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/1.webp' alt='')
-                .tuto_card_title
-                    h3 Entrevista Inicial
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/2.webp' alt='')
-                .tuto_card_title
-                    h3 Seguimiento
-            // Card
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/3.webp' alt='Imagen cita Psicología')
-                .tuto_card_title
-                    h3 Cita Psicolog&iacute;a
-            // Card
-            .tuto_card
-                .tuto_card_image
-                    img.tuto_card_logo(src='./img/tutorias/4.webp' alt='')
-                .tuto_card_title
-                    h3 Becas
-            // Card
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/5.webp' alt=' Imagen Vulnerabilidades')
-                .tuto_card_title
-                    h3 Vulnerabilidad
-            // Card
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/6.webp' alt=' Consejo Imagen')
-                .tuto_card_title
-                    h3 Junta Consejo
-            // Card
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/7.webp' alt=' Solicitud baja Imagen')
-                .tuto_card_title
-                    h3 Solicitud Baja
-            // Card
-            .tuto_card
-                .card_image
-                    img.tuto_card_logo(src='./img/tutorias/8.webp' alt=' PAT imagen')
-                .tuto_card_title
-                    h3 PAT
-            // Card
+            if ( role === "student" )
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/1.webp' alt='')
+                    .tuto_card_title
+                        h3 Entrevista Inicial
+                    // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/3.webp' alt='Imagen cita Psicología')
+                    .tuto_card_title
+                        h3 Cita Psicolog&iacute;a
+                // Card
+                .tuto_card
+                    .tuto_card_image
+                        img.tuto_card_logo(src='./img/tutorias/4.webp' alt='')
+                    .tuto_card_title
+                        h3 Becas
+            else
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/1.webp' alt='')
+                    .tuto_card_title
+                        h3 Entrevista Inicial
+                // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/3.webp' alt='Imagen cita Psicología')
+                    .tuto_card_title
+                        h3 Cita Psicolog&iacute;a
+                // Card
+                .tuto_card
+                    .tuto_card_image
+                        img.tuto_card_logo(src='./img/tutorias/4.webp' alt='')
+                    .tuto_card_title
+                        h3 Becas
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/2.webp' alt='')
+                    .tuto_card_title
+                        h3 Seguimiento
+                // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/5.webp' alt=' Imagen Vulnerabilidades')
+                    .tuto_card_title
+                        h3 Vulnerabilidad
+                // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/6.webp' alt=' Consejo Imagen')
+                    .tuto_card_title
+                        h3 Junta Consejo
+                // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/7.webp' alt=' Solicitud baja Imagen')
+                    .tuto_card_title
+                        h3 Solicitud Baja
+                // Card
+                .tuto_card
+                    .card_image
+                        img.tuto_card_logo(src='./img/tutorias/8.webp' alt=' PAT imagen')
+                    .tuto_card_title
+                        h3 PAT
+                // Card

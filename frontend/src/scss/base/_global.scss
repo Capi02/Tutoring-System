@@ -73,12 +73,16 @@ a {
 }
 
 .container {
-  width: min(90%, 100rem);
+  width: min(80%, 100rem);
   margin: 0 auto;
+
+  @include m.desktop {
+    width: min(90%, 100rem);
+  }
 }
 
 .h-80{
-  height: 80%;
+  height: 90%;
 }
 
 .w-100{

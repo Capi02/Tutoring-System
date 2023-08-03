@@ -40,5 +40,5 @@ conectarDB();
 const PORT = process.env.PORT || 4000 // en caso que no haya un puerto será el 4000
 
 app.listen(PORT, () => {
-    console.log(`Servido funcionando en el servidor ${PORT}`);
+    console.log(`Server running on Port: ${PORT}`);
 });
