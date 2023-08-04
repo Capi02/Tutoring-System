@@ -14,13 +14,22 @@ const registerStudent = async (req, res, next) => {
             return res.status(400).json({ error: "El nombre de usuario ya ha sido registrado" })
         }
 
+        const existingMatricula = await Student.findOne({ matricula });
+        if (existingMatricula) {
+            return res.status(400).json({ error: "La matrícula que ingresó ya está registrada" });
+        }
+
+        if (matricula.length > 10) {
+            return res.status(400).json({ error: "El campo Matrícula no puede tener mas de 10 caracteres" })
+        }
+
         const passwordHash = await bcrypt.hash(password, 10)
 
         const newUser = new Student({
             matricula,
-            nombre,
-            apellidoPaterno,
-            apellidoMaterno,
+            nombre: nombre.toUpperCase(),
+            apellidoPaterno: apellidoPaterno.toUpperCase(),
+            apellidoMaterno: apellidoMaterno.toUpperCase(),
             username,
             password: passwordHash,
         })
@@ -48,7 +57,7 @@ const student = async (req, res) => {
             return res.status(404).json({ error: "Estudiante no encontrado" })
         }
     } catch (error) {
-        return res.status(500).json({ error: error})
+        return res.status(500).json({ error: error })
     }
 }
 
@@ -67,9 +76,9 @@ const updateStudent = async (req, res) => {
 
         // assigning the new values
         user.matricula = matricula;
-        user.nombre = nombre;
-        user.apellidoPaterno = apellidoPaterno;
-        user.apellidoMaterno = apellidoMaterno;
+        user.nombre = nombre.toUpperCase();
+        user.apellidoPaterno = apellidoPaterno.toUpperCase();
+        user.apellidoMaterno = apellidoMaterno.toUpperCase();
         user.username = username;
         user.password = passwordHash;
         user.role = "student";
@@ -96,6 +105,7 @@ const getStudents = async (req, res, next) => {
                 matricula: user.matricula,
                 apellidoPaterno: user.apellidoPaterno,
                 apellidoMaterno: user.apellidoMaterno,
+                nombre: user.nombre,
                 username: user.username,
                 password: user.password,
                 role: user.role,
@@ -122,15 +132,14 @@ const registerTeacher = async (req, res) => {
 
         const newTeacher = new Teacher({
             numeroEmpleado,
-            nombre,
-            apellidoPaterno,
-            apellidoMaterno,
+            nombre: nombre.toUpperCase(),
+            apellidoPaterno: apellidoPaterno.toUpperCase(),
+            apellidoMaterno: apellidoMaterno.toUpperCase(),
             username,
             password: passwordHash,
         })
 
         await newTeacher.save();
-
         res.status(200).json({ message: "Maestro creado correctamente" })
 
     } catch (error) {
@@ -158,10 +167,10 @@ const teacher = async (req, res) => {
 }
 
 const updateTeacher = async (req, res) => {
-    const { id } = req.params;
-    const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
-
     try {
+        const { id } = req.params;
+        const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
+
         const teacher = await Teacher.findById(id);
 
         if (!teacher) {
@@ -172,9 +181,9 @@ const updateTeacher = async (req, res) => {
 
         // assigning the new values
         teacher.numeroEmpleado = numeroEmpleado;
-        teacher.nombre = nombre;
-        teacher.apellidoPaterno = apellidoPaterno;
-        teacher.apellidoMaterno = apellidoMaterno;
+        teacher.nombre = nombre.toUpperCase();
+        teacher.apellidoPaterno = apellidoPaterno.toUpperCase();
+        teacher.apellidoMaterno = apellidoMaterno.toUpperCase();
         teacher.username = username;
         teacher.password = passwordHash;
         teacher.role = "teacher";
@@ -216,9 +225,10 @@ const getTeachers = async (req, res, next) => {
 }
 
 const registerPsychologist = async (req, res) => {
-    const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
 
     try {
+        const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
+
         const psychologistFound = await Psychologist.findOne({ username })
         if (psychologistFound) return res.status(400).json({ error: "El nombre de usuario ya ha sido registrado" });
 
@@ -226,9 +236,9 @@ const registerPsychologist = async (req, res) => {
 
         const newPsychologist = new Psychologist({
             numeroEmpleado,
-            nombre,
-            apellidoPaterno,
-            apellidoMaterno,
+            nombre: nombre.toUpperCase(),
+            apellidoPaterno: apellidoPaterno.toUpperCase(),
+            apellidoMaterno: apellidoMaterno.toUpperCase(),
             username,
             password: passwordHash,
         })
@@ -260,10 +270,11 @@ const psychologist = async (req, res) => {
 }
 
 const updatePsychologist = async (req, res) => {
-    const { id } = req.params;
-    const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
 
     try {
+        const { id } = req.params;
+        const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
+        
         const psychologist = await Psychologist.findById(id);
 
         if (!psychologist) {
@@ -274,9 +285,9 @@ const updatePsychologist = async (req, res) => {
 
         // assigning the new values
         psychologist.numeroEmpleado = numeroEmpleado;
-        psychologist.nombre = nombre;
-        psychologist.apellidoPaterno = apellidoPaterno;
-        psychologist.apellidoMaterno = apellidoMaterno;
+        psychologist.nombre = nombre.toUpperCase();
+        psychologist.apellidoPaterno = apellidoPaterno.toUpperCase();
+        psychologist.apellidoMaterno = apellidoMaterno.toUpperCase();
         psychologist.username = username;
         psychologist.password = passwordHash;
         psychologist.role = "psychologist";

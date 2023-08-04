@@ -1,5 +1,7 @@
 extends ../layout/adminLayout
 block Content
+    #loader(style="display: none;")
+        .loader-inner
     .tab
         .title
             h1 Registrar Usuarios
@@ -8,11 +10,11 @@ block Content
             button.tablinks(onclick="openUserType(event, 'Teachers')") Maestros
             button.tablinks(onclick="openUserType(event, 'Psychologists')") Psicólogos
     #Students.tabcontent.active(style = "display:block;")
-        .register_student_form 
+        .register_form 
             form#register_student_form(method="POST" action="") 
                 .field 
-                    label(for="matricula") Nombre:
-                    input#matricula(type="text" name="matricula" placeholder="Matricula" ) 
+                    label(for="matricula") Matrícula:
+                    input#matricula(type="text" name="matricula" placeholder="Matrícula" ) 
                 .field 
                     label(for="nombre") Nombre:
                     input#nombre(type="text" name="nombre" placeholder="Nombre" ) 
@@ -28,14 +30,14 @@ block Content
                 .field 
                     label(for="passowrd") Contraseña: 
                     input#password(type="password" name="password" placeholder="Contraseña")
-                .register_student_buttons_container 
+                .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
                     .excel_container 
                         p.excel_label Registrar con archivo Excel:
-                        input#input_excel_student.register_input_excel(type="file" name="file" placeholder="Registrar con archivo csv")
+                        input#input_excel_student.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx")
                     
     #Teachers.tabcontent
-        .register_student_form 
+        .register_form 
             form#register_teacher_form(method="POST" action="") 
                 .field 
                     label(for="numeroEmpleado") Numero Empleado:
@@ -55,14 +57,14 @@ block Content
                 .field 
                     label(for="passoword") Contraseña: 
                     input#password_form2(type="password" name="password" placeholder="Contraseña")
-                .register_student_buttons_container 
+                .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
                     .excel_container 
                         p.excel_label Registrar con archivo Excel:
-                        input#input_excel_teacher.register_input_excel(type="file" placeholder="Registrar con archivo csv").register_student_button_excel 
+                        input#input_excel_teacher.register_input_excel(type="file" placeholder="Registrar con archivo excel" accept=".xlsx").register_student_button_excel 
                        
     #Psychologists.tabcontent
-        .register_student_form 
+        .register_form 
             form#register_psychologist_form(method="POST" action="") 
                 .field 
                     label(for="numeroEmpleado") Numero Empleado:
@@ -82,11 +84,11 @@ block Content
                 .field 
                     label(for="passowrd") Contraseña: 
                     input#password_form3(type="password" name="password" placeholder="Contraseña")
-                .register_student_buttons_container 
+                .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
                     .excel_container 
                         p.excel_label Registrar con archivo Excel:
-                        input#input_excel_psychologist.register_input_excel(type="file" name="file" placeholder="Registrar con archivo csv").register_student_button_excel 
+                        input#input_excel_psychologist.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx").register_student_button_excel 
 
     script(src="/api/register-student.js" type="module") 
     script(src="/api/register-teacher.js" type="module") 
@@ -96,19 +98,14 @@ block Content
        
         var i, tabcontent, tablinks;
 
-        // Get all elements with class="tabcontent" and hide them
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
-        // Get all elements with class="tablinks" and remove the class "active"
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(userType).style.display = "block";
         evt.currentTarget.className += " active";
         }

@@ -18,6 +18,7 @@ async function getStudents() {
 }
 
 function studentsTable(students) {
+    console.log(students)
     let table = new DataTable("#students_table", {
         responsive: true,
         data: students,
@@ -25,8 +26,8 @@ function studentsTable(students) {
             { data: 'matricula' },
             { data: "apellidoPaterno" },
             { data: "apellidoMaterno" },
+            { data: 'nombre' },
             { data: 'username' },
-            { data: 'password' },
             { data: 'role' },
             { // Agregamos una columna para las acciones
                 data: null,

@@ -44,9 +44,9 @@ const createStudentExcel = async (req, res) => {
 
             const newStudent = new Student({
                 matricula,
-                nombre,
-                apellidoPaterno,
-                apellidoMaterno,
+                nombre: nombre.toUpperCase(),
+                apellidoPaterno: apellidoPaterno.toUpperCase(),
+                apellidoMaterno: apellidoMaterno.toUpperCase(),
                 username,
                 password: passwordHash,
             });
@@ -88,9 +88,9 @@ const createTeacherExcel = async (req, res) => {
 
             const newTeacher = new Teacher({
                 numeroEmpleado,
-                nombre,
-                apellidoPaterno,
-                apellidoMaterno,
+                nombre: nombre.toUpperCase(),
+                apellidoPaterno: apellidoPaterno.toUpperCase(),
+                apellidoMaterno: apellidoMaterno.toUpperCase(),
                 username,
                 password: passwordHash,
             });
@@ -119,7 +119,6 @@ const createPsychologistExcel = async (req, res) => {
 
         for (const item of data) {
             const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = item;
-            console.log(item.nombre)
 
             const userAlreadyRegistered = await Psychologist.find({ username: username })
             if (userAlreadyRegistered.length > 0) return res.status(400).json({ error: `El nombre de usuario: ${username}, ya se encuentra registrado` })
@@ -134,9 +133,9 @@ const createPsychologistExcel = async (req, res) => {
 
             const newPsychologist = new Psychologist({
                 numeroEmpleado,
-                nombre,
-                apellidoPaterno,
-                apellidoMaterno,
+                nombre: nombre.toUpperCase(),
+                apellidoPaterno: apellidoPaterno.toUpperCase(),
+                apellidoMaterno: apellidoMaterno.toUpperCase(),
                 username,
                 password: passwordHash,
             });

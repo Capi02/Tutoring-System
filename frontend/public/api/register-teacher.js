@@ -1,10 +1,13 @@
+
+import { addUserAlert } from "../funciones/alert.js";
+
 const form = document.querySelector("#register_teacher_form");
 
-form.addEventListener("submit", validarForm);
+form.addEventListener("submit", validarTeacherForm);
 
 const onlyNumbersRegex = /^\d+$/;
 
-function validarForm(e) {
+function validarTeacherForm(e) {
     e.preventDefault();
     const numeroEmpleado = document.querySelector("#numeroEmpleado_form2").value;
     const nombre = document.querySelector("#nombre_form2").value;
@@ -14,13 +17,13 @@ function validarForm(e) {
     const password = document.querySelector("#password_form2").value;
 
     if (numeroEmpleado === "" || nombre === "" || apellidoPaterno === "" || apellidoMaterno === "" || username === "" || password === "") {
-        console.log("Todos los formularios son obligatorios");
+        addUserAlert("Todos los campos son obligatorios", "teacher");
     } else if (password.length < 6) {
-        console.log("La contraseña debe tener al menos 6 caracteres");
+        addUserAlert("La contraseña debe tener al menos 6 caracteres", "teacher");
     } else if (username.length > 15 || password.length > 15) {
-        console.log("El usuario o contraseña sobrepasa el limite de caracteres");
+        addUserAlert("El usuario o contraseña sobrepasa el limite de caracteres", "teacher");
     } else if (onlyNumbersRegex.test(username)) {
-        console.log("El usuario solo contiene numeros");
+        addUserAlert("El usuario solo contiene numeros", "teacher");
     } else {
         enviarFormulario();
     }
@@ -67,6 +70,7 @@ function enviarFormulario() {
 
 
 const fileInput = document.querySelector("#input_excel_teacher");
+const loader = document.getElementById("loader");
 fileInput.addEventListener("change", handleFileUpload);
 
 function handleFileUpload() {
@@ -75,12 +79,19 @@ function handleFileUpload() {
     const formData = new FormData();
     formData.append("file", file);
 
+    // Show the loader
+    loader.style.display = "block";
+
     fetch("http://localhost:4000/api/upload/excel/teacher", {
         method: "POST",
         body: formData,
     })
         .then(response => response.json())
         .then(data => {
+
+            // Hide the loader
+            loader.style.display = "none";
+
             if (data.error) {
                 swal({
                     title: "Error!",
@@ -102,5 +113,7 @@ function handleFileUpload() {
         })
         .catch(error => {
             console.log(error);
+            // Hide the loader in case of an error
+            loader.style.display = "none";
         });
 }

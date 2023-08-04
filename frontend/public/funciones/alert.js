@@ -16,6 +16,29 @@ export function showAlert(message) {
             divAlert.remove();
         }, 2000);
     }
+}
 
+export function addUserAlert(message, type) {
 
+    const alertaActual = document.querySelector(".alert_error")
+
+    if (alertaActual) {
+        return;
+    } else {
+        const divAlert = document.createElement("DIV");
+        divAlert.textContent = message;
+        divAlert.classList.add("alert_error");
+
+        const form = document.querySelector(`#register_${type}_form`);
+        const formContainer = form.querySelector(".field");
+        if (formContainer) {
+            form.insertBefore(divAlert, formContainer);
+        } else {
+            // If there's no formContainer, add the alert as the first child of the form
+            form.insertBefore(divAlert, form.firstChild);
+        }
+        setTimeout(() => {
+            divAlert.remove();
+        }, 2000);
+    }
 }

@@ -16,11 +16,11 @@
   }
 }
 
-.register_student_form {
+.register_form {
   padding: 3rem;
 
   @include m.desktop {
-    height: 32rem;
+    height: auto;
   }
   .field {
     font-size: 1.5rem;
@@ -30,7 +30,7 @@
   }
 }
 
-.register_student_buttons_container {
+.register_buttons_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +109,13 @@
   display: flex;
   gap: 1.5rem;
 
+  label{
+    font-weight: 700;
+  }
+  
+
   .edit_input {
+    border: 1.5px solid black;
 
     &:focus {
       border: 2px solid v.$uttn_green;

@@ -9,12 +9,10 @@ head
   link(rel="shortcut icon", href="/img/ti_logo.png", type="image/x-icon")
   link(rel='preload' href='./css/app.css' as='style')
   link(rel="stylesheet", href="./css/app.css")
-  script(src="/funciones/loader.js") 
   include includes.pug
   title=title
 
 body
   include header
-  span.loader
   block contenido
   include footer

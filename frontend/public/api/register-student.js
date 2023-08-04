@@ -1,12 +1,12 @@
+import { addUserAlert } from "../funciones/alert.js";
+
 const form = document.querySelector("#register_student_form");
 
-
-
-form.addEventListener("submit", validarForm);
+form.addEventListener("submit", validarStudentForm);
 
 const onlyNumbersRegex = /^\d+$/;
 
-function validarForm(e) {
+function validarStudentForm(e) {
   e.preventDefault();
   const matricula = document.querySelector("#matricula").value;
   const nombre = document.querySelector("#nombre").value
@@ -16,19 +16,19 @@ function validarForm(e) {
   const password = document.querySelector("#password").value;
 
   if (matricula === "" || nombre === "" || apellidoPaterno === "" || apellidoMaterno === "" || username === "" || password === "") {
-    console.log("Todos los formularios son obligatorios");
+    addUserAlert("Todos los campos son obligatorios", "student");
+  }else if (matricula > 10){
+    addUserAlert("El campo Matrícula no puede tener mas de 10 caracteres", "student")
   } else if (password.length < 6) {
-    console.log("La contraseña debe tener al menos 6 caracteres");
-  } else if (username.length > 15 || password.length > 15) {
-    console.log("El usuario o contraseña sobrepasa el limite de caracteres");
+     addUserAlert("La contraseña debe tener al menos 6 caracteres","student");
+  } else if (username.length > 25 || password.length > 25) {
+     addUserAlert("El usuario o contraseña sobrepasa el limite de caracteres","student");
   } else if (onlyNumbersRegex.test(username)) {
-    console.log("El usuario solo contiene numeros");
+     addUserAlert("El usuario solo contiene numeros","student");
   } else {
     enviarFormulario();
   }
 }
-
-
 
 function enviarFormulario() {
   const data = {
@@ -73,6 +73,8 @@ function enviarFormulario() {
 
 
 const fileInput = document.querySelector("#input_excel_student");
+const loader = document.getElementById("loader");
+
 fileInput.addEventListener("change", handleFileUpload);
 
 function handleFileUpload() {
@@ -81,12 +83,18 @@ function handleFileUpload() {
   const formData = new FormData();
   formData.append("file", file);
 
+  // Show the loader
+  loader.style.display = "block";
+
   fetch("http://localhost:4000/api/upload/excel/students", {
     method: "POST",
     body: formData,
   })
     .then(response => response.json())
     .then(data => {
+      // Hide the loader
+      loader.style.display = "none";
+
       if (data.error) {
         swal({
           title: "Error!",
@@ -109,5 +117,8 @@ function handleFileUpload() {
     })
     .catch(error => {
       console.log(error);
+      // Hide the loader in case of an error
+      loader.style.display = "none";
     });
 }
+
