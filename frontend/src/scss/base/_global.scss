@@ -1,6 +1,6 @@
 @use "../base/mixins" as m;
 
-@use '../base/variables' as v;
+@use "../base/variables" as v;
 
 html {
   box-sizing: border-box;
@@ -32,7 +32,6 @@ img {
 
 h1 {
   font-size: 3rem;
-
 }
 
 h2 {
@@ -50,7 +49,6 @@ h3 {
 h1,
 h2,
 h3 {
-
   margin: 0;
   padding: 0;
 }
@@ -67,7 +65,7 @@ li {
 a {
   text-decoration: none;
 
-  &:visited{
+  &:visited {
     color: v.$black;
   }
 }
@@ -75,21 +73,48 @@ a {
 .container {
   width: min(80%, 100rem);
   margin: 0 auto;
+}
 
-  @include m.desktop {
-    width: min(90%, 100rem);
+@include m.tablet {
+  .container {
+    width: min(85%, 90rem);
   }
 }
 
-.h-80{
+@include m.desktop {
+  .container {
+    width: min(90%, 100rem);
+    margin: 0 auto;
+  }
+}
+
+@include m.desktopXL {
+  .container {
+    width: min(85%, 125rem);
+    margin: 0 auto;
+  }
+}
+
+.h-80 {
   height: 90%;
 }
 
-.w-100{
+.w-100 {
   width: 100%;
 }
 
+.mt-4{
+  margin-top: 4rem;
+}
 
+.pt-3{
+  padding: 3rem;
+}
+
+.w-70-30{
+  display: grid;
+    grid-template-columns: 70% 30% ;
+}
 
 #menu_tuto_grid {
   @include m.desktopXL {
@@ -106,25 +131,3 @@ a {
     height: 100%;
   }
 }
-
-    // MEDIA QUERIES
-
-    @include m.tablet {
-      .container {
-        width: min(90%, 90rem);
-      }
-    }
-
-    @include m.desktop {
-      .container {
-        width: min(85%, 100rem);
-        margin: 0 auto;
-      }
-    }
-
-    @include m.desktopXL {
-      .container {
-        width: min(85%, 125rem);
-        margin: 0 auto;
-      }
-    }

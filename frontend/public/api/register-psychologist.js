@@ -40,7 +40,7 @@ function enviarFormulario() {
         password: document.querySelector("#password_form3").value,
     };
 
-    fetch('http://localhost:4000/api/register-psychologist', {
+    fetch('http://localhost:4000/api/register/psychologist', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

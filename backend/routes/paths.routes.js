@@ -1,6 +1,7 @@
 const { authenticateToken, adminAuth } = require("../middlewares/validateToken")
 const Router = require("express");
 const router = Router();
+const Test1 = require("../models/pensamiento.abstracto.model");
 
 router.get("/", authenticateToken, (req, res) => {
     const { username, role} = req.user;
@@ -23,15 +24,19 @@ router.get("/login", (req, res) => {
     res.render("login", locals);
 })
 
-router.get("/psicometricos", authenticateToken, (req, res) => {
+router.get("/psicometricos", authenticateToken, async (req, res) => {
+
+    const { username, role} = req.user;
+
+    const paQuestions = await Test1.find();
 
     const locals = {
         title: "Psicometrico",
-        user: req.user.username
+        username,
+        role,
+        paQuestions
     }
     res.render("psicometricos", locals), {
-        // informacion que se envia a la plantilla
-
     };
 })
 
@@ -44,6 +49,18 @@ router.get("/tutorias", authenticateToken, (req, res) => {
         role
     }
     res.render("tutorias", locals);
+})
+
+router.get("/actualizar-password", authenticateToken, (req, res) => {
+    const {username, role} = req.user;
+
+    const locals = {
+        title: "Actualizar contraseña",
+        username,
+        role,
+    }
+
+    res.render("change-password", locals);
 })
 
 router.get("/pagina-error", authenticateToken, (req, res) => {

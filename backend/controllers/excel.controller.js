@@ -140,6 +140,7 @@ const createPsychologistExcel = async (req, res) => {
                 password: passwordHash,
             });
             await newPsychologist.save();
+            console.log(newPsychologist)
         }
 
         deleteTempFile(path);

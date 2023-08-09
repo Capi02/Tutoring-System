@@ -32,7 +32,8 @@ router.get("/maestros",authenticateToken, authenticateRole("admin"), (req, res) 
 
     const locals = {
         title: "Maestros",
-        username
+        username,
+        role,
     }
 
     res.render("admin/maestros", locals)

@@ -13,31 +13,14 @@
 .form_card {
   width: 30rem;
   height: 35rem;
-  background: #f5f5f5;
+  background: v.$login_color;
   border: 1.5px solid #e3e3e3;
   border-radius: 5px;
 }
 
 .form {
   padding: 25px;
-
-  button {
-    background-color: v.$uttn_green;
-    margin-top: 10px;
-    font-size: 1.5rem;
-    padding: 7px 12px;
-    height: auto;
-    font-weight: 500;
-    color: white;
-    border: none;
-    border-radius: 5px;
-
-    &:hover {
-      background-color: darken(v.$uttn_green, 4);
-      cursor: pointer;
-    }
   }
-}
 
 .form_card svg {
   color: v.$uttn_green;

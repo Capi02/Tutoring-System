@@ -17,7 +17,7 @@ function validarStudentForm(e) {
 
   if (matricula === "" || nombre === "" || apellidoPaterno === "" || apellidoMaterno === "" || username === "" || password === "") {
     addUserAlert("Todos los campos son obligatorios", "student");
-  }else if (matricula > 10){
+  }else if (matricula.length > 10){
     addUserAlert("El campo Matrícula no puede tener mas de 10 caracteres", "student")
   } else if (password.length < 6) {
      addUserAlert("La contraseña debe tener al menos 6 caracteres","student");
@@ -42,7 +42,7 @@ function enviarFormulario() {
 
   console.log(data)
 
-  fetch('http://localhost:4000/api/register-student', {
+  fetch('http://localhost:4000/api/register/student', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

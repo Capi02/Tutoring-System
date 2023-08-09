@@ -9,6 +9,7 @@ async function getPsychologist() {
     const res = await fetch("http://localhost:4000/api/psychologists");
     const data = await res.json();
     psychologistTable(data)
+    console.log(data)
 }
 
 function psychologistTable(psychologists) {

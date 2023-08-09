@@ -1,3 +1,26 @@
 @use "../../base/variables" as v;
 @use "../../base/mixins" as m;
 
+.test_content{
+    width: 90%;
+    margin: auto;
+}
+
+.test_form{
+    font-size: 1.6rem;
+
+    h4{
+        margin-bottom: 2rem;
+    }
+}
+
+#pensamientoAbstracto{
+    padding: 3rem;
+}
+
+.answer_container{
+    font-weight: 400;
+    display: flex;
+    gap: 1rem;
+
+}

@@ -40,7 +40,7 @@ function enviarFormulario() {
         password: document.querySelector("#password_form2").value,
     };
 
-    fetch('http://localhost:4000/api/register-teacher', {
+    fetch('http://localhost:4000/api/register/teacher', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
