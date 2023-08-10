@@ -54,14 +54,33 @@ const updateStudent = async (req, res) => {
 }
 
 const updatePassword = async (req, res) => {
+
+    const { oldPassword, newPassword, username } = req.body;
+
     try {
-        const oldPassword = req.body;
+
+        const student = await Student.findOne({ username: username });
+
+        if (!student) {
+            return res.status(404).json({error: 'Alumno no encontrado'});
+        }
+
+        const isMatch = await bcrypt.compare(oldPassword, student.password);
+
+        if(!isMatch){
+            return res.status(400).json({error: 'La contraseña que ingresó no es correcta'});
+        }
+
+        const newPasswordHash = await bcrypt.hash(newPassword, 10);
+        student.password = newPasswordHash;
+        await student.save();
+        res.status(200).json({ message: "Contraseña actualizada correctamente"})
 
     } catch (error) {
-        console.log(error)
+        console.error('Error al cambiar la contraseña:', error);
+        res.status(500).send('Error al cambiar la contraseña');
     }
-}
-
+};
 
 const getStudents = async (req, res, next) => {
 
@@ -89,8 +108,6 @@ const getStudents = async (req, res, next) => {
         throw error;
     }
 }
-
-
 
 const teacher = async (req, res) => {
     try {
@@ -189,7 +206,7 @@ const updatePsychologist = async (req, res) => {
     try {
         const { id } = req.params;
         const { numeroEmpleado, nombre, apellidoPaterno, apellidoMaterno, username, password } = req.body;
-        
+
         const psychologist = await Psychologist.findById(id);
 
         if (!psychologist) {
@@ -229,7 +246,7 @@ const getPsychologists = async (req, res, next) => {
                 apellidoPaterno: psychologist.apellidoPaterno,
                 apellidoMaterno: psychologist.apellidoMaterno,
                 username: psychologist.username,
-                password: psychologist.password,
+                nombre: psychologist.nombre,
                 role: psychologist.role,
             };
         });
@@ -282,6 +299,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
     student,
     updateStudent,
+    updatePassword,
     getStudents,
     teacher,
     updateTeacher,

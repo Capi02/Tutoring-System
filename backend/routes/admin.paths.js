@@ -27,7 +27,7 @@ router.get("/estudiantes", authenticateToken, authenticateRole("admin"), (req, r
     res.render("admin/estudiantes", locals)
 })
 
-router.get("/maestros",authenticateToken, authenticateRole("admin"), (req, res) => {
+router.get("/maestros", authenticateToken, authenticateRole("admin"), (req, res) => {
     const {username, role} = req.user;
 
     const locals = {

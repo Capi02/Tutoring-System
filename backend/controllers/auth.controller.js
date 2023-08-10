@@ -78,12 +78,12 @@ const logout = (req, res) => {
     const token = req.cookies.token; // Obtener el token de la cookie
 
     if (!token) {
-        res.redirect('/');
+        return res.redirect('/');
     }
 
     try {
         res.clearCookie("token", { expires: new Date(0) }); // Eliminar la cookie de token
-        res.redirect('/');
+        res.redirect("/")
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: "Error al cerrar la sesión" });

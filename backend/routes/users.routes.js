@@ -1,5 +1,5 @@
 const Router = require("express");
-const { student, updateStudent, getStudents, teacher, updateTeacher, getTeachers,psychologist, updatePsychologist, getPsychologists, deleteUser} = require("../controllers/users.controller.js");
+const { student, updateStudent, updatePassword, getStudents, teacher, updateTeacher, getTeachers,psychologist, updatePsychologist, getPsychologists, deleteUser} = require("../controllers/users.controller.js");
 
 const router = Router();
 
@@ -7,6 +7,7 @@ const router = Router();
 router.get("/students", getStudents);
 router.get("/student/:id", student);
 router.patch("/update-student/:id", updateStudent);
+router.post("/update-password", updatePassword);
 router.delete("/delete/:id", deleteUser)
 
 

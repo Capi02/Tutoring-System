@@ -12,83 +12,83 @@ block Content
     #Students.tabcontent.active(style = "display:block;")
         .register_form 
             form#register_student_form(method="POST" action="") 
-                .field 
-                    label(for="matricula") Matrícula:
-                    input#matricula(type="text" name="matricula" placeholder="Matrícula" ) 
-                .field 
-                    label(for="nombre") Nombre:
-                    input#nombre(type="text" name="nombre" placeholder="Nombre" ) 
-                .field 
-                    label(for="apellidoPaterno") Apellido Paterno:
-                    input#apellidoPaterno(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
-                .field 
-                    label(for="apellidoMaterno") Apellido Materno:
-                    input#apellidoMaterno(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
-                .field 
-                    label(for="username") Nombre Usuario:
-                    input#username(type="text" name="username" placeholder="Nombre Usuario" ) 
-                .field 
-                    label(for="passowrd") Contraseña: 
-                    input#password(type="password" name="password" placeholder="Contraseña")
+                .add_user_field 
+                    label.add_user_label(for="matricula") Matrícula:
+                    input.add_user_input#matricula(type="text" name="matricula" placeholder="Matrícula" ) 
+                .add_user_field 
+                    label.add_user_label(for="nombre") Nombre:
+                    input.add_user_input#nombre(type="text" name="nombre" placeholder="Nombre" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoPaterno") Apellido Paterno:
+                    input.add_user_input#apellidoPaterno(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoMaterno") Apellido Materno:
+                    input.add_user_input#apellidoMaterno(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
+                .add_user_field  
+                    label.add_user_label(for="username") Nombre Usuario:
+                    input.add_user_input#username(type="text" name="username" placeholder="Nombre Usuario" ) 
+                .add_user_field  
+                    label.add_user_label(for="passoword") Contraseña: 
+                    input.add_user_input#password(type="password" name="password" placeholder="Contraseña")
                 .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
-                    .excel_container 
-                        p.excel_label Registrar con archivo Excel:
-                        input#input_excel_student.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx")
+        .excel_container 
+                    p.excel_label Registrar con archivo Excel:
+                    input#input_excel_student.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx")
                     
     #Teachers.tabcontent
         .register_form 
             form#register_teacher_form(method="POST" action="") 
-                .field 
-                    label(for="numeroEmpleado") Numero Empleado:
-                    input#numeroEmpleado_form2(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
-                .field 
-                    label(for="nombre") Nombre:
-                    input#nombre_form2(type="text" name="nombre" placeholder="Nombre" ) 
-                .field 
-                    label(for="apellidoPaterno") Apellido Paterno:
-                    input#apellidoPaterno_form2(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
-                .field 
-                    label(for="apellidoMaterno") Apellido Materno:
-                    input#apellidoMaterno_form2(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
-                .field 
-                    label(for="username") Nombre Usuario:
-                    input#username_form2(type="text" name="username" placeholder="Nombre Usuario" ) 
-                .field 
-                    label(for="passoword") Contraseña: 
-                    input#password_form2(type="password" name="password" placeholder="Contraseña")
+                .add_user_field 
+                    label.add_user_label(for="numeroEmpleado") Numero Empleado:
+                    input.add_user_input#numeroEmpleado_form2(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
+                .add_user_field  
+                    label.add_user_label(for="nombre") Nombre:
+                    input.add_user_input#nombre_form2(type="text" name="nombre" placeholder="Nombre" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoPaterno") Apellido Paterno:
+                    input.add_user_input#apellidoPaterno_form2(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoMaterno") Apellido Materno:
+                    input.add_user_input#apellidoMaterno_form2(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
+                .add_user_field  
+                    label.add_user_label(for="username") Nombre Usuario:
+                    input.add_user_input#username_form2(type="text" name="username" placeholder="Nombre Usuario" ) 
+                .add_user_field  
+                    label.add_user_label(for="passoword") Contraseña: 
+                    input.add_user_input#password_form2(type="password" name="password" placeholder="Contraseña")
                 .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
-                    .excel_container 
-                        p.excel_label Registrar con archivo Excel:
-                        input#input_excel_teacher.register_input_excel(type="file" placeholder="Registrar con archivo excel" accept=".xlsx").register_student_button_excel 
+        .excel_container 
+                    p.excel_label Registrar con archivo Excel:
+                    input#input_excel_teacher.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx")
                        
     #Psychologists.tabcontent
         .register_form 
             form#register_psychologist_form(method="POST" action="") 
-                .field 
-                    label(for="numeroEmpleado") Numero Empleado:
-                    input#numeroEmpleado_form3(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
-                .field 
-                    label(for="nombre") Nombre:
-                    input#nombre_form3(type="text" name="nombre" placeholder="Nombre" ) 
-                .field 
-                    label(for="apellidoPaterno") Apellido Paterno:
-                    input#apellidoPaterno_form3(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
-                .field 
-                    label(for="apellidoMaterno") Apellido Materno:
-                    input#apellidoMaterno_form3(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
-                .field 
-                    label(for="username") Nombre Usuario:
-                    input#username_form3(type="text" name="username" placeholder="Nombre Usuario" ) 
-                .field 
-                    label(for="passowrd") Contraseña: 
-                    input#password_form3(type="password" name="password" placeholder="Contraseña")
+                .add_user_field  
+                    label.add_user_label(for="numeroEmpleado") Numero Empleado:
+                    input.add_user_input#numeroEmpleado_form3(type="text" name="numeroEmpleado" placeholder="Numero Empleado" ) 
+                .add_user_field  
+                    label.add_user_label(for="nombre") Nombre:
+                    input.add_user_input#nombre_form3(type="text" name="nombre" placeholder="Nombre" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoPaterno") Apellido Paterno:
+                    input.add_user_input#apellidoPaterno_form3(type="text" name="apellidoPaterno" placeholder="Apellido Paterno" ) 
+                .add_user_field  
+                    label.add_user_label(for="apellidoMaterno") Apellido Materno:
+                    input.add_user_input#apellidoMaterno_form3(type="text" name="apellidoMaterno" placeholder="Apellido Materno" ) 
+                .add_user_field  
+                    label.add_user_label(for="username") Nombre Usuario:
+                    input.add_user_input#username_form3(type="text" name="username" placeholder="Nombre Usuario" ) 
+                .add_user_field  
+                    label.add_user_label(for="passowrd") Contraseña: 
+                    input.add_user_input#password_form3(type="password" name="password" placeholder="Contraseña")
                 .register_buttons_container 
                     button.register_student_button(type="submit") Registrar
-                    .excel_container 
-                        p.excel_label Registrar con archivo Excel:
-                        input#input_excel_psychologist.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx").register_student_button_excel 
+        .excel_container 
+                    p.excel_label Registrar con archivo Excel:
+                    input#input_excel_psychologist.register_input_excel(type="file" name="file" placeholder="Registrar con archivo excel" accept=".xlsx")         
 
     script(src="/api/register-student.js" type="module") 
     script(src="/api/register-teacher.js" type="module") 

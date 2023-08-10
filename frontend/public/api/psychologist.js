@@ -9,7 +9,6 @@ async function getPsychologist() {
     const res = await fetch("http://localhost:4000/api/psychologists");
     const data = await res.json();
     psychologistTable(data)
-    console.log(data)
 }
 
 function psychologistTable(psychologists) {
@@ -20,8 +19,8 @@ function psychologistTable(psychologists) {
             { data: 'numeroEmpleado' },
             { data: "apellidoPaterno" },
             { data: "apellidoMaterno" },
+            { data: 'nombre' },
             { data: 'username' },
-            { data: 'password' },
             { data: 'role' },
             {
                 data: null,
